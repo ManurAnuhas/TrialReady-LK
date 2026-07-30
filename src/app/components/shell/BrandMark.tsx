@@ -42,7 +42,7 @@ export function BrandMark({ compact = false, tone = "dark" }: BrandMarkProps) {
           style={{
             background: "#ffffff",
             borderRadius: 8,
-            padding: "6px 12px",
+            padding: "4px 10px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -54,7 +54,7 @@ export function BrandMark({ compact = false, tone = "dark" }: BrandMarkProps) {
             src={logo}
             alt="TrialReady LK Logo"
             style={{
-              height: 32,
+              height: 44,
               width: "auto",
               maxWidth: "100%",
               objectFit: "contain",
