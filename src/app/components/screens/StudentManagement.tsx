@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+﻿import React, { useState, useRef, useEffect } from "react";
 import {
   Search,
   SlidersHorizontal,
@@ -26,7 +26,7 @@ import { StudentRegistrationWizard } from "./StudentRegistrationWizard";
 import { StudentProfile } from "./StudentProfile";
 import { ConfirmDialog } from "../ui/ConfirmDialog";
 
-/* ─── Student data ─── */
+/* â”€â”€â”€ Student data â”€â”€â”€ */
 
 interface Student {
   id: string;
@@ -47,9 +47,9 @@ interface Student {
 const STUDENTS: Student[] = [
   {
     id: "STD-2026-0048",
-    name: "Kavindu Perera",
-    email: "kavindu.p@gmail.com",
-    initials: "KP",
+    name: "Loshan Mihisara",
+    email: "loshan.m@gmail.com",
+    initials: "LM",
     vehicleCategory: "Light Vehicle",
     currentStage: "Practical Training",
     instructor: "Kasun Silva",
@@ -62,9 +62,9 @@ const STUDENTS: Student[] = [
   },
   {
     id: "STD-2026-0052",
-    name: "Sanduni Jayasekara",
-    email: "sanduni.j@gmail.com",
-    initials: "SJ",
+    name: "Ravishka Rathnayake",
+    email: "ravishka.r@gmail.com",
+    initials: "RR",
     vehicleCategory: "Motorcycle",
     currentStage: "Trial Eligible",
     instructor: "Malini Fernando",
@@ -77,9 +77,9 @@ const STUDENTS: Student[] = [
   },
   {
     id: "STD-2026-0061",
-    name: "Tharindu Fernando",
-    email: "tharindu.f@gmail.com",
-    initials: "TF",
+    name: "Lasindu Dilshan",
+    email: "lasindu.d@gmail.com",
+    initials: "LD",
     vehicleCategory: "Light Vehicle",
     currentStage: "Medical Pending",
     instructor: null,
@@ -122,7 +122,7 @@ const STUDENTS: Student[] = [
   },
 ];
 
-/* ─── Color maps ─── */
+/* â”€â”€â”€ Color maps â”€â”€â”€ */
 
 const STAGE_COLORS: Record<string, { color: string; bg: string }> = {
   "Medical Pending": { color: "#92400E", bg: "#FEF3C7" },
@@ -154,7 +154,7 @@ const PAYMENT_COLORS: Record<string, { color: string; bg: string }> = {
   overdue: { color: "#991B1B", bg: "#FEE2E2" },
 };
 
-/* ─── Reusable badge ─── */
+/* â”€â”€â”€ Reusable badge â”€â”€â”€ */
 
 function Badge({ label, color, bg }: { label: string; color: string; bg: string }) {
   return (
@@ -176,7 +176,7 @@ function Badge({ label, color, bg }: { label: string; color: string; bg: string 
   );
 }
 
-/* ─── Avatar ─── */
+/* â”€â”€â”€ Avatar â”€â”€â”€ */
 
 function Avatar({ initials, size = 32 }: { initials: string; size?: number }) {
   const palette = [
@@ -209,7 +209,7 @@ function Avatar({ initials, size = 32 }: { initials: string; size?: number }) {
   );
 }
 
-/* ─── Row action menu ─── */
+/* â”€â”€â”€ Row action menu â”€â”€â”€ */
 
 function ActionMenu({ studentId, studentName, onViewProfile }: { studentId: string; studentName: string; onViewProfile: () => void }) {
   const [open, setOpen] = useState(false);
@@ -322,7 +322,7 @@ function ActionMenu({ studentId, studentName, onViewProfile }: { studentId: stri
   );
 }
 
-/* ─── Sortable column header ─── */
+/* â”€â”€â”€ Sortable column header â”€â”€â”€ */
 
 function SortHeader({
   label,
@@ -371,7 +371,7 @@ function SortHeader({
   );
 }
 
-/* ─── Loading skeleton ─── */
+/* â”€â”€â”€ Loading skeleton â”€â”€â”€ */
 
 function SkeletonRow() {
   const pulse = { animation: "pulse 1.5s ease-in-out infinite", background: "#F1F5F9", borderRadius: 4 };
@@ -386,7 +386,7 @@ function SkeletonRow() {
   );
 }
 
-/* ─── Empty state ─── */
+/* â”€â”€â”€ Empty state â”€â”€â”€ */
 
 function EmptyState({ onRegister }: { onRegister: () => void }) {
   return (
@@ -447,7 +447,7 @@ function EmptyState({ onRegister }: { onRegister: () => void }) {
   );
 }
 
-/* ─── No results state ─── */
+/* â”€â”€â”€ No results state â”€â”€â”€ */
 
 function NoResults({ onClear }: { onClear: () => void }) {
   return (
@@ -508,7 +508,7 @@ function NoResults({ onClear }: { onClear: () => void }) {
   );
 }
 
-/* ─── Filter bar ─── */
+/* â”€â”€â”€ Filter bar â”€â”€â”€ */
 
 interface Filters {
   search: string;
@@ -577,7 +577,7 @@ function FilterBar({
           <input
             value={filters.search}
             onChange={(e) => onChange({ search: e.target.value })}
-            placeholder="Search by name, ID, email…"
+            placeholder="Search by name, ID, emailâ€¦"
             style={{
               width: "100%",
               height: 38,
@@ -774,7 +774,7 @@ function FilterBar({
   );
 }
 
-/* ─── Registration success screen ─── */
+/* â”€â”€â”€ Registration success screen â”€â”€â”€ */
 
 function RegistrationSuccess({
   studentName,
@@ -915,7 +915,7 @@ function RegistrationSuccess({
           {[
             "Medical clearance appointment to be scheduled",
             "Instructor will contact student to arrange first session",
-            "Student portal is live — login credentials sent by email",
+            "Student portal is live â€” login credentials sent by email",
           ].map((item, i) => (
             <div
               key={i}
@@ -1016,7 +1016,7 @@ function RegistrationSuccess({
   );
 }
 
-/* ─── Main StudentManagement export ─── */
+/* â”€â”€â”€ Main StudentManagement export â”€â”€â”€ */
 
 type ManagementView = "list" | "wizard" | "success" | "profile";
 
@@ -1127,7 +1127,7 @@ export function StudentManagement() {
         <div>
           <h1 style={{ fontSize: 24, fontWeight: 700, color: "#1E293B", margin: "0 0 4px" }}>Students</h1>
           <div style={{ fontSize: 13, color: "#64748B" }}>
-            {STUDENTS.length} students enrolled · {STUDENTS.filter((s) => s.accountStatus === "Active").length} active
+            {STUDENTS.length} students enrolled Â· {STUDENTS.filter((s) => s.accountStatus === "Active").length} active
           </div>
         </div>
       </div>
@@ -1271,7 +1271,7 @@ export function StudentManagement() {
             }}
           >
             <div style={{ fontSize: 13, color: "#64748B" }}>
-              Showing {Math.min((page - 1) * perPage + 1, sorted.length)}–{Math.min(page * perPage, sorted.length)} of{" "}
+              Showing {Math.min((page - 1) * perPage + 1, sorted.length)}â€“{Math.min(page * perPage, sorted.length)} of{" "}
               {sorted.length} student{sorted.length !== 1 ? "s" : ""}
             </div>
 
@@ -1341,3 +1341,5 @@ export function StudentManagement() {
     </div>
   );
 }
+
+

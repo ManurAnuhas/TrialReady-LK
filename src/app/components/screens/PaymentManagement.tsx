@@ -1,11 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
+﻿import React, { useState, useRef, useEffect } from "react";
 import {
   Search, Download, Plus, X, Printer, ChevronDown,
   TrendingUp, Wallet, AlertCircle, Clock, CheckCircle2,
   MoreHorizontal, Eye, Receipt, FileText,
 } from "lucide-react";
 
-/* ─── Types ─── */
+/* â”€â”€â”€ Types â”€â”€â”€ */
 
 interface Payment {
   id: string;
@@ -20,17 +20,17 @@ interface Payment {
   status: "Completed" | "Pending" | "Overdue" | "Refunded";
 }
 
-/* ─── Sample data ─── */
+/* â”€â”€â”€ Sample data â”€â”€â”€ */
 
 const PAYMENTS: Payment[] = [
-  { id: "p1", receipt: "RCPT-2026-0841", student: "Kavindu Perera", studentId: "STD-2026-0048", package: "Standard LV Package", amount: 10000, method: "Bank Transfer", date: "2026-07-20", recordedBy: "Nimal Perera", status: "Completed" },
-  { id: "p2", receipt: "RCPT-2026-0840", student: "Sanduni Jayasekara", studentId: "STD-2026-0052", package: "Premium LV Package", amount: 20000, method: "Card", date: "2026-07-19", recordedBy: "Nimal Perera", status: "Completed" },
-  { id: "p3", receipt: "RCPT-2026-0839", student: "Tharindu Fernando", studentId: "STD-2026-0061", package: "Motorcycle Starter", amount: 14000, method: "Cash", date: "2026-07-18", recordedBy: "Admin", status: "Completed" },
-  { id: "p4", receipt: "RCPT-2026-0838", student: "Nethmi Wijesinghe", studentId: "STD-2026-0068", package: "Standard LV Package", amount: 22500, method: "Bank Transfer", date: "2026-07-17", recordedBy: "Nimal Perera", status: "Completed" },
+  { id: "p1", receipt: "RCPT-2026-0841", student: "Loshan Mihisara", studentId: "STD-2026-0048", package: "Standard LV Package", amount: 10000, method: "Bank Transfer", date: "2026-07-20", recordedBy: "Manura Anuhas", status: "Completed" },
+  { id: "p2", receipt: "RCPT-2026-0840", student: "Ravishka Rathnayake", studentId: "STD-2026-0052", package: "Premium LV Package", amount: 20000, method: "Card", date: "2026-07-19", recordedBy: "Manura Anuhas", status: "Completed" },
+  { id: "p3", receipt: "RCPT-2026-0839", student: "Lasindu Dilshan", studentId: "STD-2026-0061", package: "Motorcycle Starter", amount: 14000, method: "Cash", date: "2026-07-18", recordedBy: "Admin", status: "Completed" },
+  { id: "p4", receipt: "RCPT-2026-0838", student: "Nethmi Wijesinghe", studentId: "STD-2026-0068", package: "Standard LV Package", amount: 22500, method: "Bank Transfer", date: "2026-07-17", recordedBy: "Manura Anuhas", status: "Completed" },
   { id: "p5", receipt: "RCPT-2026-0837", student: "Dilhara Senanayake", studentId: "STD-2026-0072", package: "Premium LV Package", amount: 15000, method: "Cash", date: "2026-07-16", recordedBy: "Admin", status: "Pending" },
-  { id: "p6", receipt: "RCPT-2026-0836", student: "Ruwan Wickramasinghe", studentId: "STD-2026-0044", package: "Heavy Vehicle Package", amount: 25000, method: "Bank Transfer", date: "2026-07-15", recordedBy: "Nimal Perera", status: "Overdue" },
+  { id: "p6", receipt: "RCPT-2026-0836", student: "Ruwan Wickramasinghe", studentId: "STD-2026-0044", package: "Heavy Vehicle Package", amount: 25000, method: "Bank Transfer", date: "2026-07-15", recordedBy: "Manura Anuhas", status: "Overdue" },
   { id: "p7", receipt: "RCPT-2026-0835", student: "Amaya Silva", studentId: "STD-2026-0039", package: "Standard LV Package", amount: 10000, method: "Card", date: "2026-07-14", recordedBy: "Admin", status: "Completed" },
-  { id: "p8", receipt: "RCPT-2026-0834", student: "Chamara Perera", studentId: "STD-2026-0036", package: "Motorcycle Starter", amount: 28000, method: "Cash", date: "2026-07-12", recordedBy: "Nimal Perera", status: "Refunded" },
+  { id: "p8", receipt: "RCPT-2026-0834", student: "Chamara Perera", studentId: "STD-2026-0036", package: "Motorcycle Starter", amount: 28000, method: "Cash", date: "2026-07-12", recordedBy: "Manura Anuhas", status: "Refunded" },
 ];
 
 const PACKAGE_OPTIONS = ["All packages", "Standard LV Package", "Premium LV Package", "Motorcycle Starter", "Heavy Vehicle Package", "Three-Wheeler Package"];
@@ -44,7 +44,7 @@ const STATUS_STYLE: Record<string, { color: string; bg: string }> = {
   Refunded: { color: "#4B5563", bg: "#F3F4F6" },
 };
 
-/* ─── Record Payment Modal ─── */
+/* â”€â”€â”€ Record Payment Modal â”€â”€â”€ */
 
 interface RecordPaymentProps { onClose: () => void; onSave: (print: boolean) => void; }
 
@@ -53,7 +53,7 @@ function RecordPaymentModal({ onClose, onSave }: RecordPaymentProps) {
   const PREV_PAID = 22500;
 
   const [form, setForm] = useState({
-    student: "Kavindu Perera",
+    student: "Loshan Mihisara",
     studentId: "STD-2026-0048",
     package: "Standard LV Package",
     paymentAmount: 10000,
@@ -93,9 +93,9 @@ function RecordPaymentModal({ onClose, onSave }: RecordPaymentProps) {
             <div>
               <label style={labelStyle}>Student</label>
               <select style={selectStyle} value={form.student} onChange={(e) => setForm({ ...form, student: e.target.value })}>
-                <option>Kavindu Perera</option>
-                <option>Sanduni Jayasekara</option>
-                <option>Tharindu Fernando</option>
+                <option>Loshan Mihisara</option>
+                <option>Ravishka Rathnayake</option>
+                <option>Lasindu Dilshan</option>
                 <option>Nethmi Wijesinghe</option>
                 <option>Dilhara Senanayake</option>
               </select>
@@ -142,7 +142,7 @@ function RecordPaymentModal({ onClose, onSave }: RecordPaymentProps) {
               </div>
             </div>
 
-            {/* Payment method — no online gateway */}
+            {/* Payment method â€” no online gateway */}
             <div>
               <label style={labelStyle}>Payment method <span style={{ color: "#DC2626" }}>*</span></label>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
@@ -173,20 +173,20 @@ function RecordPaymentModal({ onClose, onSave }: RecordPaymentProps) {
             </div>
           </div>
 
-          {/* Right — live calc panel */}
+          {/* Right â€” live calc panel */}
           <div style={{ width: 200, background: "#F8FAFC", borderLeft: "1px solid #E2E8F0", padding: "20px 18px", display: "flex", flexDirection: "column", gap: 0, flexShrink: 0 }}>
             <div style={{ fontSize: 12, fontWeight: 700, color: "#374151", marginBottom: 16, textTransform: "uppercase", letterSpacing: "0.06em" }}>Balance calculation</div>
             <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
               {[
                 { label: "Package price", value: AGREED_PRICE, color: "#1E293B", sign: "" },
                 { label: "Additional charges", value: form.additionalCharge, color: form.additionalCharge > 0 ? "#C2410C" : "#94A3B8", sign: "+" },
-                { label: "Discounts", value: form.discount, color: form.discount > 0 ? "#16A34A" : "#94A3B8", sign: "−" },
-                { label: "Previous payments", value: PREV_PAID, color: "#16A34A", sign: "−" },
-                { label: "This payment", value: form.paymentAmount, color: "#2563EB", sign: "−" },
+                { label: "Discounts", value: form.discount, color: form.discount > 0 ? "#16A34A" : "#94A3B8", sign: "âˆ’" },
+                { label: "Previous payments", value: PREV_PAID, color: "#16A34A", sign: "âˆ’" },
+                { label: "This payment", value: form.paymentAmount, color: "#2563EB", sign: "âˆ’" },
               ].map(({ label, value, color, sign }) => (
                 <div key={label} style={{ padding: "9px 0", borderBottom: "1px solid #E2E8F0" }}>
                   <div style={{ fontSize: 11, color: "#64748B", marginBottom: 2 }}>{sign ? `${sign} ${label}` : label}</div>
-                  <div style={{ fontSize: 13, fontWeight: 600, color }}>{value > 0 ? `LKR ${value.toLocaleString()}` : "—"}</div>
+                  <div style={{ fontSize: 13, fontWeight: 600, color }}>{value > 0 ? `LKR ${value.toLocaleString()}` : "â€”"}</div>
                 </div>
               ))}
             </div>
@@ -195,8 +195,8 @@ function RecordPaymentModal({ onClose, onSave }: RecordPaymentProps) {
             <div style={{ marginTop: 12, padding: "12px 14px", borderRadius: 10, background: balance < 0 ? "#FEE2E2" : balance === 0 ? "#DCFCE7" : "#EFF6FF", border: `1px solid ${balance < 0 ? "#FCA5A5" : balance === 0 ? "#86EFAC" : "#BFDBFE"}` }}>
               <div style={{ fontSize: 11, color: "#64748B", marginBottom: 4 }}>Remaining balance</div>
               <div style={{ fontSize: 20, fontWeight: 800, color: balance < 0 ? "#DC2626" : balance === 0 ? "#16A34A" : "#1D4ED8", letterSpacing: "-0.02em" }}>LKR {Math.abs(balance).toLocaleString()}</div>
-              {balance < 0 && <div style={{ fontSize: 10, color: "#DC2626", marginTop: 4 }}>Overpayment — issue refund</div>}
-              {balance === 0 && <div style={{ fontSize: 10, color: "#16A34A", marginTop: 4 }}>Fully settled ✓</div>}
+              {balance < 0 && <div style={{ fontSize: 10, color: "#DC2626", marginTop: 4 }}>Overpayment â€” issue refund</div>}
+              {balance === 0 && <div style={{ fontSize: 10, color: "#16A34A", marginTop: 4 }}>Fully settled âœ“</div>}
             </div>
           </div>
         </div>
@@ -214,7 +214,7 @@ function RecordPaymentModal({ onClose, onSave }: RecordPaymentProps) {
   );
 }
 
-/* ─── Printable Receipt ─── */
+/* â”€â”€â”€ Printable Receipt â”€â”€â”€ */
 
 interface ReceiptProps { onClose: () => void; }
 
@@ -262,7 +262,7 @@ function PrintableReceiptModal({ onClose }: ReceiptProps) {
               {/* Header band */}
               <div style={{ background: "linear-gradient(135deg, #1E3A5F 0%, #2563EB 100%)", padding: "28px 28px 22px", textAlign: "center" }}>
                 <div style={{ fontSize: 20, fontWeight: 800, color: "#ffffff", letterSpacing: "-0.01em", marginBottom: 2 }}>Metro Drive Academy</div>
-                <div style={{ fontSize: 11, color: "#93C5FD", marginBottom: 12 }}>No. 45, Galle Road, Colombo 03 · Tel: 011-258-4400 · www.metrodriveacademy.lk</div>
+                <div style={{ fontSize: 11, color: "#93C5FD", marginBottom: 12 }}>No. 45, Galle Road, Colombo 03 Â· Tel: 011-258-4400 Â· www.metrodriveacademy.lk</div>
                 <div style={{ display: "inline-block", padding: "3px 14px", borderRadius: 5, background: "rgba(255,255,255,0.15)", fontSize: 11, fontWeight: 700, color: "#ffffff", letterSpacing: "0.08em", textTransform: "uppercase" }}>Official Payment Receipt</div>
               </div>
 
@@ -282,12 +282,12 @@ function PrintableReceiptModal({ onClose }: ReceiptProps) {
               <div style={{ padding: "20px 28px" }}>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px 24px" }}>
                   {[
-                    ["Student name", "Kavindu Perera"],
+                    ["Student name", "Loshan Mihisara"],
                     ["Student ID", "STD-2026-0048"],
                     ["Training package", "Standard LV Package"],
                     ["Vehicle category", "Light Vehicle"],
                     ["Payment method", "Bank Transfer"],
-                    ["Recorded by", "Nimal Perera"],
+                    ["Recorded by", "Manura Anuhas"],
                   ].map(([label, value]) => (
                     <div key={label}>
                       <div style={{ fontSize: 10, color: "#94A3B8", textTransform: "uppercase", letterSpacing: "0.07em", marginBottom: 3 }}>{label}</div>
@@ -300,8 +300,8 @@ function PrintableReceiptModal({ onClose }: ReceiptProps) {
                 <div style={{ marginTop: 20, background: "#F8FAFC", borderRadius: 10, padding: "14px 18px" }}>
                   {[
                     { label: "Package price", value: "LKR 45,000", muted: false },
-                    { label: "Previously paid", value: "− LKR 22,500", muted: true },
-                    { label: "Discount", value: "− LKR 0", muted: true },
+                    { label: "Previously paid", value: "âˆ’ LKR 22,500", muted: true },
+                    { label: "Discount", value: "âˆ’ LKR 0", muted: true },
                     { label: "Additional charges", value: "+ LKR 0", muted: true },
                   ].map(({ label, value, muted }) => (
                     <div key={label} style={{ display: "flex", justifyContent: "space-between", padding: "6px 0", borderBottom: "1px solid #E2E8F0" }}>
@@ -328,7 +328,7 @@ function PrintableReceiptModal({ onClose }: ReceiptProps) {
                   This is an official receipt issued by Metro Drive Academy.<br />
                   Please retain this document for your records. For queries, contact <span style={{ color: "#2563EB" }}>finance@metrodriveacademy.lk</span>
                 </div>
-                <div style={{ marginTop: 10, fontSize: 10, color: "#94A3B8" }}>Generated by TrialReady LK · 22 Jul 2026 14:30</div>
+                <div style={{ marginTop: 10, fontSize: 10, color: "#94A3B8" }}>Generated by TrialReady LK Â· 22 Jul 2026 14:30</div>
               </div>
             </div>
           </div>
@@ -338,7 +338,7 @@ function PrintableReceiptModal({ onClose }: ReceiptProps) {
   );
 }
 
-/* ─── Action menu ─── */
+/* â”€â”€â”€ Action menu â”€â”€â”€ */
 
 function PaymentAction({ pmt, onViewReceipt }: { pmt: Payment; onViewReceipt: () => void }) {
   const [open, setOpen] = useState(false);
@@ -369,7 +369,7 @@ function PaymentAction({ pmt, onViewReceipt }: { pmt: Payment; onViewReceipt: ()
   );
 }
 
-/* ─── Main export ─── */
+/* â”€â”€â”€ Main export â”€â”€â”€ */
 
 export function PaymentManagement() {
   const [search, setSearch] = useState("");
@@ -428,7 +428,7 @@ export function PaymentManagement() {
           </div>
           <div style={{ flex: 1 }}>
             <div style={{ fontWeight: 700, marginBottom: 2 }}>Payment recorded</div>
-            <div style={{ fontSize: 12, color: "#94A3B8" }}>{toast.receiptNo} · {toast.amount}</div>
+            <div style={{ fontSize: 12, color: "#94A3B8" }}>{toast.receiptNo} Â· {toast.amount}</div>
           </div>
           <button onClick={() => setToast(null)} style={{ background: "none", border: "none", color: "#64748B", cursor: "pointer", padding: 0 }}><X size={14} /></button>
         </div>
@@ -468,7 +468,7 @@ export function PaymentManagement() {
       <div style={{ background: "#ffffff", border: "1px solid #E2E8F0", borderRadius: 12, padding: "12px 16px", marginBottom: 16, display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
         <div style={{ position: "relative", flex: "1 1 200px" }}>
           <Search size={14} style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", color: "#94A3B8" }} />
-          <input placeholder="Search by student or receipt number…"
+          <input placeholder="Search by student or receipt numberâ€¦"
             style={{ width: "100%", height: 38, border: "1.5px solid #E2E8F0", borderRadius: 8, padding: "0 12px 0 32px", fontSize: 13, color: "#1E293B", outline: "none", fontFamily: "inherit", boxSizing: "border-box" }}
             value={search} onChange={(e) => setSearch(e.target.value)} />
         </div>
@@ -550,7 +550,7 @@ export function PaymentManagement() {
         <div style={{ padding: "10px 16px", borderTop: "1px solid #F1F5F9", background: "#F8FAFC", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <span style={{ fontSize: 12, color: "#94A3B8" }}>Showing {filtered.length} of {PAYMENTS.length} payments</span>
           <div style={{ display: "flex", gap: 6 }}>
-            {["←", "1", "2", "3", "→"].map((l, idx) => (
+            {["â†", "1", "2", "3", "â†’"].map((l, idx) => (
               <button key={idx} style={{ width: 30, height: 30, borderRadius: 6, border: `1px solid ${l === "1" ? "#2563EB" : "#E2E8F0"}`, background: l === "1" ? "#EFF6FF" : "#ffffff", color: l === "1" ? "#2563EB" : "#64748B", fontSize: 12, cursor: "pointer", fontFamily: "inherit", fontWeight: l === "1" ? 700 : 400 }}>{l}</button>
             ))}
           </div>
@@ -559,3 +559,4 @@ export function PaymentManagement() {
     </div>
   );
 }
+

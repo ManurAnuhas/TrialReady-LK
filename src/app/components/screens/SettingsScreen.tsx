@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import {
   Building2, Palette, Users, FileText, Bell, Map,
   Shield, Activity, ChevronRight, Plus, X, Check,
@@ -8,7 +8,7 @@ import {
 import { BrandMark } from "../shell/BrandMark";
 
 
-/* ─── Tabs ─── */
+/* â”€â”€â”€ Tabs â”€â”€â”€ */
 
 type SettingsTab = "profile" | "branding" | "users" | "documents" | "notifications" | "journey" | "security" | "audit";
 
@@ -23,7 +23,7 @@ const TABS: { id: SettingsTab; icon: React.ReactNode; label: string }[] = [
   { id: "audit", icon: <Activity size={15} />, label: "Audit Activity" },
 ];
 
-/* ─── Helper components ─── */
+/* â”€â”€â”€ Helper components â”€â”€â”€ */
 
 function SettingRow({ label, sub, children }: { label: string; sub?: string; children: React.ReactNode }) {
   return (
@@ -56,7 +56,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
   return <div style={{ fontSize: 13, fontWeight: 700, color: "#374151", marginBottom: 14, textTransform: "uppercase", letterSpacing: "0.06em" }}>{children}</div>;
 }
 
-/* ─── Tab panels ─── */
+/* â”€â”€â”€ Tab panels â”€â”€â”€ */
 
 function ProfileTab() {
   return (
@@ -102,7 +102,7 @@ function ProfileTab() {
             <button style={{ display: "flex", alignItems: "center", gap: 6, height: 36, padding: "0 14px", borderRadius: 8, border: "1.5px solid #E2E8F0", background: "#ffffff", color: "#475569", fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>
               <Upload size={13} />Upload new logo
             </button>
-            <div style={{ fontSize: 11, color: "#94A3B8", marginTop: 6 }}>PNG or SVG recommended · Max 1 MB · Min 200 × 200 px</div>
+            <div style={{ fontSize: 11, color: "#94A3B8", marginTop: 6 }}>PNG or SVG recommended Â· Max 1 MB Â· Min 200 Ã— 200 px</div>
           </div>
         </div>
       </Card>
@@ -135,10 +135,10 @@ function BrandingTab() {
       <Card>
         <SectionTitle>Document headers</SectionTitle>
         <SettingRow label="Receipt header text" sub="Appears on printed payment receipts">
-          <input style={{ ...inputStyle, width: 280 }} defaultValue="Metro Drive Academy — Official Receipt" />
+          <input style={{ ...inputStyle, width: 280 }} defaultValue="Metro Drive Academy â€” Official Receipt" />
         </SettingRow>
         <SettingRow label="Report header text" sub="Appears on exported PDF reports">
-          <input style={{ ...inputStyle, width: 280 }} defaultValue="Metro Drive Academy — Confidential" />
+          <input style={{ ...inputStyle, width: 280 }} defaultValue="Metro Drive Academy â€” Confidential" />
         </SettingRow>
         <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 14 }}>
           <button style={{ height: 38, padding: "0 18px", borderRadius: 8, border: "none", background: "#2563EB", color: "#ffffff", fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>Save branding</button>
@@ -149,7 +149,7 @@ function BrandingTab() {
 }
 
 const USERS = [
-  { id: "u1", name: "Nimal Perera", role: "Administrator", email: "nimal@metrodriveacademy.lk", status: "Active" },
+  { id: "u1", name: "Manura Anuhas", role: "Administrator", email: "manura@metrodriveacademy.lk", status: "Active" },
   { id: "u2", name: "Kasun Silva", role: "Instructor", email: "kasun@metrodriveacademy.lk", status: "Active" },
   { id: "u3", name: "Malini Fernando", role: "Instructor", email: "malini@metrodriveacademy.lk", status: "Active" },
   { id: "u4", name: "Priya Dissanayake", role: "Instructor", email: "priya@metrodriveacademy.lk", status: "Active" },
@@ -322,7 +322,7 @@ function SecurityTab() {
   const [showPw, setShowPw] = useState(false);
 
   const LOGINS = [
-    { user: "Nimal Perera", ip: "192.168.1.10", date: "2026-07-22", time: "08:41", status: "Success" },
+    { user: "Manura Anuhas", ip: "192.168.1.10", date: "2026-07-22", time: "08:41", status: "Success" },
     { user: "Kasun Silva", ip: "192.168.1.14", date: "2026-07-22", time: "08:15", status: "Success" },
     { user: "Admin (system)", ip: "192.168.1.1", date: "2026-07-21", time: "22:00", status: "Success" },
     { user: "Unknown", ip: "41.57.102.88", date: "2026-07-21", time: "14:33", status: "Failed" },
@@ -394,13 +394,13 @@ function SecurityTab() {
 }
 
 const AUDIT_LOGS = [
-  { date: "2026-07-22", time: "09:12", user: "Nimal Perera", action: "Payment recorded", entity: "Student", record: "Kavindu Perera (STD-2026-0048)", ip: "192.168.1.10" },
-  { date: "2026-07-22", time: "08:55", user: "Kasun Silva", action: "Session created", entity: "Calendar event", record: "Practical · 24 Jul 2026 · BAA-4521", ip: "192.168.1.14" },
-  { date: "2026-07-21", time: "17:20", user: "Kasun Silva", action: "Exam result recorded", entity: "Exam result", record: "Sanduni Jayasekara — Practical Trial — Passed", ip: "192.168.1.14" },
+  { date: "2026-07-22", time: "09:12", user: "Manura Anuhas", action: "Payment recorded", entity: "Student", record: "Loshan Mihisara (STD-2026-0048)", ip: "192.168.1.10" },
+  { date: "2026-07-22", time: "08:55", user: "Kasun Silva", action: "Session created", entity: "Calendar event", record: "Practical Â· 24 Jul 2026 Â· BAA-4521", ip: "192.168.1.14" },
+  { date: "2026-07-21", time: "17:20", user: "Kasun Silva", action: "Exam result recorded", entity: "Exam result", record: "Ravishka Rathnayake â€” Practical Trial â€” Passed", ip: "192.168.1.14" },
   { date: "2026-07-21", time: "14:05", user: "Admin (system)", action: "Student registered", entity: "Student", record: "Dilhara Senanayake (STD-2026-0072)", ip: "192.168.1.1" },
-  { date: "2026-07-20", time: "12:30", user: "Nimal Perera", action: "Vehicle status updated", entity: "Vehicle", record: "BDL-7402 — Under maintenance", ip: "192.168.1.10" },
-  { date: "2026-07-19", time: "10:00", user: "Nimal Perera", action: "Instructor profile edited", entity: "Instructor", record: "Ruwan Jayasinghe (INS-0018) — Status: On leave", ip: "192.168.1.10" },
-  { date: "2026-07-18", time: "08:45", user: "Admin (system)", action: "Weekly backup completed", entity: "System", record: "All records · 2026-07-18 03:00 AM", ip: "192.168.1.1" },
+  { date: "2026-07-20", time: "12:30", user: "Manura Anuhas", action: "Vehicle status updated", entity: "Vehicle", record: "BDL-7402 â€” Under maintenance", ip: "192.168.1.10" },
+  { date: "2026-07-19", time: "10:00", user: "Manura Anuhas", action: "Instructor profile edited", entity: "Instructor", record: "Ruwan Jayasinghe (INS-0018) â€” Status: On leave", ip: "192.168.1.10" },
+  { date: "2026-07-18", time: "08:45", user: "Admin (system)", action: "Weekly backup completed", entity: "System", record: "All records Â· 2026-07-18 03:00 AM", ip: "192.168.1.1" },
 ];
 
 function AuditTab() {
@@ -434,7 +434,7 @@ function AuditTab() {
   );
 }
 
-/* ─── Main export ─── */
+/* â”€â”€â”€ Main export â”€â”€â”€ */
 
 export function SettingsScreen() {
   const [tab, setTab] = useState<SettingsTab>("profile");
@@ -479,3 +479,4 @@ export function SettingsScreen() {
     </div>
   );
 }
+

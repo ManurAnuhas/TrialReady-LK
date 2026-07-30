@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import {
   CheckCircle2, Clock, AlertCircle, Download, Printer,
   Save, Send, Eye, ChevronRight, User, FileText, Info,
 } from "lucide-react";
 
-/* ─── Types & data ─── */
+/* â”€â”€â”€ Types & data â”€â”€â”€ */
 
 type AppStatus = "Draft" | "Ready" | "Submitted" | "Incomplete";
 
@@ -24,9 +24,9 @@ interface DmtApp {
   checklist: { item: string; status: "Completed" | "Pending" | "Missing" }[];
 }
 
-const KAVINDU: DmtApp = {
+const LOSHAN: DmtApp = {
   id: "dmt-001",
-  student: "Kavindu Perera",
+  student: "Loshan Mihisara",
   studentId: "STD-2026-0048",
   nic: "200014500678V",
   dob: "2000-05-24",
@@ -40,16 +40,16 @@ const KAVINDU: DmtApp = {
   checklist: [
     { item: "NIC copy (front and back)", status: "Completed" },
     { item: "Medical certificate (Form CMV/II)", status: "Completed" },
-    { item: "Passport photograph (2 copies, 3.5 × 4.5 cm)", status: "Completed" },
-    { item: "Application data — internal summary", status: "Completed" },
+    { item: "Passport photograph (2 copies, 3.5 Ã— 4.5 cm)", status: "Completed" },
+    { item: "Application data â€” internal summary", status: "Completed" },
     { item: "Payment receipt (DMT application fee)", status: "Pending" },
   ],
 };
 
 const ALL_APPS = [
-  { student: "Kavindu Perera", id: "STD-2026-0048", status: "Draft" as AppStatus },
-  { student: "Sanduni Jayasekara", id: "STD-2026-0052", status: "Ready" as AppStatus },
-  { student: "Tharindu Fernando", id: "STD-2026-0061", status: "Submitted" as AppStatus },
+  { student: "Loshan Mihisara", id: "STD-2026-0048", status: "Draft" as AppStatus },
+  { student: "Ravishka Rathnayake", id: "STD-2026-0052", status: "Ready" as AppStatus },
+  { student: "Lasindu Dilshan", id: "STD-2026-0061", status: "Submitted" as AppStatus },
   { student: "Ruwan Wickramasinghe", id: "STD-2026-0044", status: "Incomplete" as AppStatus },
 ];
 
@@ -66,7 +66,7 @@ const CHECK_STYLE: Record<string, { color: string; bg: string; icon: React.React
   Missing: { color: "#991B1B", bg: "#FEE2E2", icon: <AlertCircle size={14} /> },
 };
 
-/* ─── Detail section ─── */
+/* â”€â”€â”€ Detail section â”€â”€â”€ */
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -88,14 +88,14 @@ function Field({ label, value }: { label: string; value: string }) {
   );
 }
 
-/* ─── Main export ─── */
+/* â”€â”€â”€ Main export â”€â”€â”€ */
 
 export function DmtApplication() {
   const [selected, setSelected] = useState<string>("STD-2026-0048");
   const [statusFilter, setStatusFilter] = useState<AppStatus | "All">("All");
-  const [appStatus, setAppStatus] = useState<AppStatus>(KAVINDU.status);
+  const [appStatus, setAppStatus] = useState<AppStatus>(LOSHAN.status);
 
-  const app = KAVINDU;
+  const app = LOSHAN;
   const statusStyle = STATUS_STYLE[appStatus];
 
   const completedCount = app.checklist.filter(c => c.status === "Completed").length;
@@ -113,7 +113,7 @@ export function DmtApplication() {
 
   return (
     <div style={{ display: "grid", gridTemplateColumns: "260px 1fr", gap: 20, minHeight: "100%" }}>
-      {/* Left sidebar — student list */}
+      {/* Left sidebar â€” student list */}
       <div>
         <div style={{ background: "#ffffff", border: "1px solid #E2E8F0", borderRadius: 12, overflow: "hidden" }}>
           <div style={{ padding: "14px 16px", borderBottom: "1px solid #E2E8F0" }}>
@@ -143,7 +143,7 @@ export function DmtApplication() {
         </div>
       </div>
 
-      {/* Right — detail panel */}
+      {/* Right â€” detail panel */}
       <div>
         {/* Header */}
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 18 }}>
@@ -152,7 +152,7 @@ export function DmtApplication() {
               <h1 style={{ fontSize: 22, fontWeight: 700, color: "#1E293B", margin: 0 }}>DMT Application Data Summary</h1>
               <span style={{ padding: "3px 10px", borderRadius: 6, fontSize: 11, fontWeight: 700, color: statusStyle.color, background: statusStyle.bg, border: `1px solid ${statusStyle.border}` }}>{appStatus}</span>
             </div>
-            <div style={{ fontSize: 13, color: "#64748B" }}>Internal data record for Department of Motor Traffic application · {app.student} · {app.studentId}</div>
+            <div style={{ fontSize: 13, color: "#64748B" }}>Internal data record for Department of Motor Traffic application Â· {app.student} Â· {app.studentId}</div>
           </div>
           <div style={{ display: "flex", gap: 7 }}>
             {[
@@ -236,7 +236,7 @@ export function DmtApplication() {
             </div>
             <div>
               <div style={{ fontSize: 13, fontWeight: 600, color: "#374151", marginBottom: 4 }}>Passport photograph uploaded</div>
-              <div style={{ fontSize: 12, color: "#64748B" }}>2 copies required · 3.5 × 4.5 cm · white background</div>
+              <div style={{ fontSize: 12, color: "#64748B" }}>2 copies required Â· 3.5 Ã— 4.5 cm Â· white background</div>
               <div style={{ fontSize: 11, color: "#16A34A", marginTop: 6, display: "flex", alignItems: "center", gap: 4 }}><CheckCircle2 size={11} />Meets DMT photograph specification</div>
             </div>
           </div>
@@ -257,3 +257,5 @@ export function DmtApplication() {
     </div>
   );
 }
+
+

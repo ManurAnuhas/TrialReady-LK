@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import {
   ChevronLeft, Edit3, MessageSquare, UserPlus, CalendarPlus, MoreHorizontal,
   Star, Phone, Mail, Shield, Car, Clock, MapPin, ChevronDown, Users,
   CheckCircle2, TrendingUp, Award, FileText, Check,
 } from "lucide-react";
 
-/* ─── Data ─── */
+/* â”€â”€â”€ Data â”€â”€â”€ */
 
 const INSTRUCTOR = {
   name: "Kasun Silva",
@@ -38,33 +38,33 @@ const WEEKLY_AVAIL = [
 ];
 
 const UPCOMING_SESSIONS = [
-  { date: "Thu, 24 Jul", time: "09:00–10:00", type: "Practical Session", student: "Kavindu Perera", vehicle: "BAA-4521", location: "Route A — Nugegoda" },
-  { date: "Thu, 24 Jul", time: "11:00–12:00", type: "Practical Session", student: "Dilhara Senanayake", vehicle: "BAA-4521", location: "Route A — Nugegoda" },
-  { date: "Fri, 25 Jul", time: "09:00–10:00", type: "Practical Session", student: "Kavindu Perera", vehicle: "BAA-4521", location: "Route A — Nugegoda" },
-  { date: "Sat, 26 Jul", time: "08:30–10:00", type: "Theory Class", student: null, vehicle: null, location: "Hall 1 — Main Campus", group: "Group A" },
+  { date: "Thu, 24 Jul", time: "09:00â€“10:00", type: "Practical Session", student: "Loshan Mihisara", vehicle: "BAA-4521", location: "Route A â€” Nugegoda" },
+  { date: "Thu, 24 Jul", time: "11:00â€“12:00", type: "Practical Session", student: "Dilhara Senanayake", vehicle: "BAA-4521", location: "Route A â€” Nugegoda" },
+  { date: "Fri, 25 Jul", time: "09:00â€“10:00", type: "Practical Session", student: "Loshan Mihisara", vehicle: "BAA-4521", location: "Route A â€” Nugegoda" },
+  { date: "Sat, 26 Jul", time: "08:30â€“10:00", type: "Theory Class", student: null, vehicle: null, location: "Hall 1 â€” Main Campus", group: "Group A" },
 ];
 
 const TRIAL_READY = [
   { name: "Dilhara Senanayake", id: "STD-2026-0072", category: "Light Vehicle", eligibleFrom: "15 Jul 2026" },
-  { name: "Sanduni Jayasekara", id: "STD-2026-0052", category: "Motorcycle", eligibleFrom: "05 Jul 2026" },
+  { name: "Ravishka Rathnayake", id: "STD-2026-0052", category: "Motorcycle", eligibleFrom: "05 Jul 2026" },
 ];
 
 const EVALUATIONS = [
-  { date: "22 Jul 2026", student: "Kavindu Perera", type: "Practical", rating: 4, comment: "Good junction control. Needs more practice on reverse parking before the trial." },
+  { date: "22 Jul 2026", student: "Loshan Mihisara", type: "Practical", rating: 4, comment: "Good junction control. Needs more practice on reverse parking before the trial." },
   { date: "18 Jul 2026", student: "Dilhara Senanayake", type: "Practical", rating: 5, comment: "Excellent progress. Confident and precise manoeuvring. Trial-ready." },
   { date: "10 Jul 2026", student: "Nethmi Wijesinghe", type: "Practical", rating: 3, comment: "Needs more practice with gear transitions at low speeds on inclines." },
-  { date: "05 Jul 2026", student: "Kavindu Perera", type: "Practical", rating: 4, comment: "Showing improvement. Highway driving is confident." },
+  { date: "05 Jul 2026", student: "Loshan Mihisara", type: "Practical", rating: 4, comment: "Showing improvement. Highway driving is confident." },
 ];
 
 const ALL_STUDENTS = [
-  { name: "Kavindu Perera", id: "STD-2026-0048", stage: "Practical Training", initials: "KP" },
+  { name: "Loshan Mihisara", id: "STD-2026-0048", stage: "Practical Training", initials: "LM" },
   { name: "Dilhara Senanayake", id: "STD-2026-0072", stage: "Written Examination", initials: "DS" },
-  { name: "Tharindu Fernando", id: "STD-2026-0061", stage: "Medical Pending", initials: "TF" },
+  { name: "Lasindu Dilshan", id: "STD-2026-0061", stage: "Medical Pending", initials: "LD" },
   { name: "Amaya Bandara", id: "STD-2026-0031", stage: "Practical Training", initials: "AB" },
   { name: "Sithum Rodrigo", id: "STD-2026-0044", stage: "Theory Training", initials: "SR" },
 ];
 
-/* ─── Shared helpers ─── */
+/* â”€â”€â”€ Shared helpers â”€â”€â”€ */
 
 const TABS = [
   { id: "overview", label: "Overview" },
@@ -117,7 +117,7 @@ function InfoRow({ label, value }: { label: string; value: React.ReactNode }) {
   );
 }
 
-/* ─── Overview tab ─── */
+/* â”€â”€â”€ Overview tab â”€â”€â”€ */
 
 function OverviewTab() {
   return (
@@ -205,7 +205,7 @@ function OverviewTab() {
                   <span style={{ fontSize: 11, color: "#64748B" }}>{s.time}</span>
                 </div>
                 <div style={{ fontSize: 12, color: "#475569", marginBottom: 3 }}>
-                  {s.group ? `${s.type} · ${s.group}` : `${s.type} · ${s.student}`}
+                  {s.group ? `${s.type} Â· ${s.group}` : `${s.type} Â· ${s.student}`}
                 </div>
                 <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
                   {s.vehicle && <span style={{ fontSize: 11, color: "#94A3B8", fontFamily: "monospace" }}>{s.vehicle}</span>}
@@ -225,7 +225,7 @@ function OverviewTab() {
                 </div>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontSize: 13, fontWeight: 600, color: "#1E293B" }}>{s.name}</div>
-                  <div style={{ fontSize: 11, color: "#64748B" }}>{s.category} · Eligible from {s.eligibleFrom}</div>
+                  <div style={{ fontSize: 11, color: "#64748B" }}>{s.category} Â· Eligible from {s.eligibleFrom}</div>
                 </div>
                 <CheckCircle2 size={16} color="#16A34A" />
               </div>
@@ -240,7 +240,7 @@ function OverviewTab() {
   );
 }
 
-/* ─── Evaluations tab ─── */
+/* â”€â”€â”€ Evaluations tab â”€â”€â”€ */
 
 function EvaluationsTab() {
   return (
@@ -259,7 +259,7 @@ function EvaluationsTab() {
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8 }}>
               <div>
                 <span style={{ fontSize: 13, fontWeight: 600, color: "#1E293B", marginRight: 8 }}>{e.student}</span>
-                <span style={{ fontSize: 11, color: "#94A3B8" }}>{e.type} · {e.date}</span>
+                <span style={{ fontSize: 11, color: "#94A3B8" }}>{e.type} Â· {e.date}</span>
               </div>
               <Stars rating={e.rating} />
             </div>
@@ -271,13 +271,13 @@ function EvaluationsTab() {
   );
 }
 
-/* ─── Students tab ─── */
+/* â”€â”€â”€ Students tab â”€â”€â”€ */
 
 function StudentsTab() {
   return (
     <div style={{ background: "#ffffff", border: "1px solid #E2E8F0", borderRadius: 12, overflow: "hidden" }}>
       <div style={{ padding: "13px 18px", borderBottom: "1px solid #E2E8F0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ fontSize: 14, fontWeight: 700, color: "#1E293B" }}>Assigned students · 32 total</span>
+        <span style={{ fontSize: 14, fontWeight: 700, color: "#1E293B" }}>Assigned students Â· 32 total</span>
         <span style={{ fontSize: 13, color: "#64748B" }}>Showing 5 of 32</span>
       </div>
       <table style={{ width: "100%", borderCollapse: "collapse" }}>
@@ -316,7 +316,7 @@ function StudentsTab() {
   );
 }
 
-/* ─── More actions menu ─── */
+/* â”€â”€â”€ More actions menu â”€â”€â”€ */
 
 function MoreActionsMenu() {
   const [open, setOpen] = useState(false);
@@ -344,7 +344,7 @@ function MoreActionsMenu() {
   );
 }
 
-/* ─── Main export ─── */
+/* â”€â”€â”€ Main export â”€â”€â”€ */
 
 export function InstructorProfile({ onBack }: { onBack: () => void }) {
   const [activeTab, setActiveTab] = useState("overview");
@@ -373,11 +373,11 @@ export function InstructorProfile({ onBack }: { onBack: () => void }) {
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
             <span style={{ fontSize: 12, color: "#64748B", fontFamily: "monospace", background: "#F1F5F9", padding: "2px 8px", borderRadius: 5 }}>INS-0014</span>
-            <span style={{ fontSize: 12, color: "#64748B" }}>·</span>
+            <span style={{ fontSize: 12, color: "#64748B" }}>Â·</span>
             <span style={{ fontSize: 12, color: "#64748B" }}>Licence: {INSTRUCTOR.licenceNumber}</span>
-            <span style={{ fontSize: 12, color: "#94A3B8" }}>·</span>
+            <span style={{ fontSize: 12, color: "#94A3B8" }}>Â·</span>
             <span style={{ fontSize: 12, color: "#64748B" }}>32 students assigned</span>
-            <span style={{ fontSize: 12, color: "#94A3B8" }}>·</span>
+            <span style={{ fontSize: 12, color: "#94A3B8" }}>Â·</span>
             <span style={{ fontSize: 12, color: "#64748B" }}>6 sessions today</span>
           </div>
         </div>
@@ -418,3 +418,4 @@ export function InstructorProfile({ onBack }: { onBack: () => void }) {
     </div>
   );
 }
+

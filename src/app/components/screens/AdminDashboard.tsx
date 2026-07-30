@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import {
   Users, UserCheck, Calendar, Award, CreditCard, FileText,
   UserPlus, CalendarPlus, Wallet, TrendingUp, TrendingDown,
@@ -7,7 +7,7 @@ import {
   ChevronRight, Download,
 } from "lucide-react";
 
-/* ─── Skeleton components ─────────────────────────────────── */
+/* â”€â”€â”€ Skeleton components â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 function SkeletonBox({ width, height, radius = 6, style = {} }: { width?: number | string; height: number; radius?: number; style?: React.CSSProperties }) {
   return (
@@ -29,7 +29,7 @@ function MetricCardSkeleton() {
   );
 }
 
-/* ─── colour helpers ──────────────────────────────────────── */
+/* â”€â”€â”€ colour helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 function Badge({ label, color, bg }: { label: string; color: string; bg: string }) {
   return (
@@ -53,7 +53,7 @@ function Badge({ label, color, bg }: { label: string; color: string; bg: string 
   );
 }
 
-/* ─── Metric card ─────────────────────────────────────────── */
+/* â”€â”€â”€ Metric card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 function MetricCard({
   label,
@@ -137,7 +137,7 @@ function MetricCard({
   );
 }
 
-/* ─── Quick Action button ─────────────────────────────────── */
+/* â”€â”€â”€ Quick Action button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 function QuickAction({
   icon,
@@ -182,22 +182,22 @@ function QuickAction({
   );
 }
 
-/* ─── Schedule table ──────────────────────────────────────── */
+/* â”€â”€â”€ Schedule table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 const scheduleRows = [
   {
     time: "08:30 AM",
     type: "Practical training",
-    student: "Kavindu Perera",
+    student: "Loshan Mihisara",
     instructor: "Kasun Silva",
-    vehicle: "BAA-4521 · Suzuki Alto",
+    vehicle: "BAA-4521 Â· Suzuki Alto",
     location: "Training Yard A",
     status: { label: "Confirmed", color: "#16A34A", bg: "#DCFCE7" },
   },
   {
     time: "10:00 AM",
     type: "Theory class",
-    student: "Group A — 12 students",
+    student: "Group A â€” 12 students",
     instructor: "Malini Fernando",
     vehicle: "Not required",
     location: "Room 03",
@@ -206,9 +206,9 @@ const scheduleRows = [
   {
     time: "01:30 PM",
     type: "Trial preparation",
-    student: "Sanduni Jayasekara",
+    student: "Ravishka Rathnayake",
     instructor: "Kasun Silva",
-    vehicle: "CAG-8820 · Toyota Aqua",
+    vehicle: "CAG-8820 Â· Toyota Aqua",
     location: "Werahera route",
     status: { label: "Confirmed", color: "#16A34A", bg: "#DCFCE7" },
   },
@@ -237,11 +237,11 @@ function ScheduleTable({ onToast }: { onToast: (msg: string, type?: string) => v
       >
         <div>
           <h3 style={{ fontSize: 16, fontWeight: 600, color: "#1E293B", margin: "0 0 2px" }}>Today's schedule</h3>
-          <p style={{ fontSize: 12, color: "#94A3B8", margin: 0 }}>Wednesday, 22 July 2026 · 3 sessions</p>
+          <p style={{ fontSize: 12, color: "#94A3B8", margin: 0 }}>Wednesday, 22 July 2026 Â· 3 sessions</p>
         </div>
         <div style={{ display: "flex", gap: 8 }}>
           <button
-            onClick={() => onToast("Downloading schedule PDF…", "info")}
+            onClick={() => onToast("Downloading schedule PDFâ€¦", "info")}
             style={{
               height: 34,
               padding: "0 12px",
@@ -449,7 +449,7 @@ function ScheduleTable({ onToast }: { onToast: (msg: string, type?: string) => v
   );
 }
 
-/* ─── Student Journey Overview ────────────────────────────── */
+/* â”€â”€â”€ Student Journey Overview â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 const journeyStages = [
   { stage: "Registered", count: 34, color: "#94A3B8", bg: "#F1F5F9" },
@@ -649,7 +649,7 @@ function JourneyOverview() {
   );
 }
 
-/* ─── Alerts & Reminders ──────────────────────────────────── */
+/* â”€â”€â”€ Alerts & Reminders â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 const alertItems = [
   { icon: <FileText size={14} />, text: "5 learner permits expire this week", type: "warning", action: "Review" },
@@ -777,21 +777,21 @@ function AlertsPanel({ onToast }: { onToast: (msg: string, type?: string) => voi
   );
 }
 
-/* ─── Recent Activity ─────────────────────────────────────── */
+/* â”€â”€â”€ Recent Activity â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 const activityItems = [
   {
     icon: <CreditCard size={14} />,
-    text: "Payment recorded for Kavindu Perera",
-    detail: "LKR 5,500 · Session fee",
+    text: "Payment recorded for Loshan Mihisara",
+    detail: "LKR 5,500 Â· Session fee",
     time: "10 min ago",
     color: "#16A34A",
     bg: "#DCFCE7",
-    initials: "NP",
+    initials: "MA",
   },
   {
     icon: <Award size={14} />,
-    text: "Written examination passed by Sanduni Jayasekara",
+    text: "Written examination passed by Ravishka Rathnayake",
     detail: "Score: 88/100",
     time: "1 hour ago",
     color: "#0284C7",
@@ -800,17 +800,17 @@ const activityItems = [
   },
   {
     icon: <UserPlus size={14} />,
-    text: "Tharindu Fernando registered",
-    detail: "30-hour package · Manual",
+    text: "Lasindu Dilshan registered",
+    detail: "30-hour package Â· Manual",
     time: "2 hours ago",
     color: "#7C3AED",
     bg: "#EDE9FE",
-    initials: "NP",
+    initials: "MA",
   },
   {
     icon: <CheckCircle2 size={14} />,
     text: "Recommendation approved by Kasun Silva",
-    detail: "For Nethmi Wijesinghe · Trial exam",
+    detail: "For Nethmi Wijesinghe Â· Trial exam",
     time: "Yesterday",
     color: "#2563EB",
     bg: "#DBEAFE",
@@ -950,7 +950,7 @@ function RecentActivity() {
   );
 }
 
-/* ─── Toast ───────────────────────────────────────────────── */
+/* â”€â”€â”€ Toast â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 interface ToastItem { id: number; msg: string; type: string; }
 
@@ -990,7 +990,7 @@ function ToastContainer({ toasts, onDismiss }: { toasts: ToastItem[]; onDismiss:
               onClick={() => onDismiss(t.id)}
               style={{ border: "none", background: "none", cursor: "pointer", color: c.color, display: "flex", padding: 0, fontSize: 16 }}
             >
-              ×
+              Ã—
             </button>
           </div>
         );
@@ -999,7 +999,7 @@ function ToastContainer({ toasts, onDismiss }: { toasts: ToastItem[]; onDismiss:
   );
 }
 
-/* ─── Main dashboard export ───────────────────────────────── */
+/* â”€â”€â”€ Main dashboard export â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 export function AdminDashboard({ onNavigate }: { onNavigate?: (nav: string) => void }) {
   const [toasts, setToasts] = useState<ToastItem[]>([]);
@@ -1037,7 +1037,7 @@ export function AdminDashboard({ onNavigate }: { onNavigate?: (nav: string) => v
 
       <ToastContainer toasts={toasts} onDismiss={dismissToast} />
 
-      {/* ── Welcome banner ──────────────────────── */}
+      {/* â”€â”€ Welcome banner â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div
         style={{
           display: "flex",
@@ -1064,14 +1064,14 @@ export function AdminDashboard({ onNavigate }: { onNavigate?: (nav: string) => v
               }}
             >
               <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#16A34A", animation: "pulse 2s infinite" }} />
-              System active · 22 July 2026
+              System active Â· 22 July 2026
             </div>
           </div>
           <h1 style={{ fontSize: 28, fontWeight: 700, color: "#1E293B", margin: "0 0 6px", letterSpacing: "-0.02em" }}>
             Administrator dashboard
           </h1>
           <p style={{ fontSize: 15, color: "#64748B", margin: 0 }}>
-            Good morning, Nimal. Here is today's driving-school overview.
+            Good morning, Manura. Here is today's driving-school overview.
           </p>
         </div>
 
@@ -1108,7 +1108,7 @@ export function AdminDashboard({ onNavigate }: { onNavigate?: (nav: string) => v
         </div>
       </div>
 
-      {/* ── Metric cards 3 × 2 ──────────────────── */}
+      {/* â”€â”€ Metric cards 3 Ã— 2 â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div
         style={{
           display: "grid",
@@ -1142,7 +1142,7 @@ export function AdminDashboard({ onNavigate }: { onNavigate?: (nav: string) => v
             <MetricCard
               label="Today's sessions"
               value="27"
-              sub="18 practical · 9 theory"
+              sub="18 practical Â· 9 theory"
               icon={<Calendar size={20} />}
               accent="#7C3AED"
               trend="+3 vs avg"
@@ -1163,7 +1163,7 @@ export function AdminDashboard({ onNavigate }: { onNavigate?: (nav: string) => v
               sub="42 students with balance"
               icon={<CreditCard size={20} />}
               accent="#DC2626"
-              trend="↑ LKR 32k"
+              trend="â†‘ LKR 32k"
               trendUp={false}
             />
             <MetricCard
@@ -1179,7 +1179,7 @@ export function AdminDashboard({ onNavigate }: { onNavigate?: (nav: string) => v
         )}
       </div>
 
-      {/* ── Urgent alerts strip ─────────────────── */}
+      {/* â”€â”€ Urgent alerts strip â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       {!loading && (
         <div style={{ display: "flex", gap: 12, marginBottom: 20, flexWrap: "wrap" }}>
           {[
@@ -1196,7 +1196,7 @@ export function AdminDashboard({ onNavigate }: { onNavigate?: (nav: string) => v
         </div>
       )}
 
-      {/* ── Schedule + Sidebar ───────────────────── */}
+      {/* â”€â”€ Schedule + Sidebar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       {!loading && (
       <div
         style={{
@@ -1217,7 +1217,7 @@ export function AdminDashboard({ onNavigate }: { onNavigate?: (nav: string) => v
       </div>
       )}
 
-      {/* ── Student Journey ──────────────────────── */}
+      {/* â”€â”€ Student Journey â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       {!loading && <JourneyOverview />}
 
       {/* bottom spacer */}
@@ -1225,3 +1225,5 @@ export function AdminDashboard({ onNavigate }: { onNavigate?: (nav: string) => v
     </div>
   );
 }
+
+

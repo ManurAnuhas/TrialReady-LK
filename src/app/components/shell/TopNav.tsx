@@ -1,27 +1,27 @@
-import React, { useState, useRef, useEffect } from "react";
+﻿import React, { useState, useRef, useEffect } from "react";
 import { Search, Bell, ChevronDown, User, Settings, LogOut, Users, Calendar, CreditCard, Award, FileText } from "lucide-react";
 
-/* ─── Search data ─── */
+/* â”€â”€â”€ Search data â”€â”€â”€ */
 const SEARCH_INDEX = [
-  { label: "Kavindu Perera", sub: "STD-2026-0048 · Practical Training", icon: Users, color: "#2563EB", bg: "#EFF6FF" },
-  { label: "Sanduni Jayasekara", sub: "STD-2026-0052 · Trial Eligible", icon: Users, color: "#2563EB", bg: "#EFF6FF" },
-  { label: "Tharindu Fernando", sub: "STD-2026-0061 · Medical Pending", icon: Users, color: "#2563EB", bg: "#EFF6FF" },
-  { label: "Nethmi Wijesinghe", sub: "STD-2026-0068 · Theory Training", icon: Users, color: "#2563EB", bg: "#EFF6FF" },
-  { label: "Dilhara Senanayake", sub: "STD-2026-0072 · Written Examination", icon: Users, color: "#2563EB", bg: "#EFF6FF" },
-  { label: "Kasun Silva", sub: "Instructor · INS-0014", icon: User, color: "#7C3AED", bg: "#EDE9FE" },
-  { label: "Malini Fernando", sub: "Instructor · INS-0018", icon: User, color: "#7C3AED", bg: "#EDE9FE" },
-  { label: "Sessions — 22 July 2026", sub: "Today's schedule · 6 sessions", icon: Calendar, color: "#16A34A", bg: "#DCFCE7" },
-  { label: "RCPT-2026-0841", sub: "Payment · Kavindu Perera · LKR 10,000", icon: CreditCard, color: "#D97706", bg: "#FEF3C7" },
-  { label: "Written Examination Results", sub: "Sanduni Jayasekara · 88% · Passed", icon: Award, color: "#0284C7", bg: "#E0F2FE" },
-  { label: "DMT Application — Kavindu Perera", sub: "Status: Draft · LP-2026-WP-00341", icon: FileText, color: "#64748B", bg: "#F1F5F9" },
+  { label: "Loshan Mihisara", sub: "STD-2026-0048 Â· Practical Training", icon: Users, color: "#2563EB", bg: "#EFF6FF" },
+  { label: "Ravishka Rathnayake", sub: "STD-2026-0052 Â· Trial Eligible", icon: Users, color: "#2563EB", bg: "#EFF6FF" },
+  { label: "Lasindu Dilshan", sub: "STD-2026-0061 Â· Medical Pending", icon: Users, color: "#2563EB", bg: "#EFF6FF" },
+  { label: "Nethmi Wijesinghe", sub: "STD-2026-0068 Â· Theory Training", icon: Users, color: "#2563EB", bg: "#EFF6FF" },
+  { label: "Dilhara Senanayake", sub: "STD-2026-0072 Â· Written Examination", icon: Users, color: "#2563EB", bg: "#EFF6FF" },
+  { label: "Kasun Silva", sub: "Instructor Â· INS-0014", icon: User, color: "#7C3AED", bg: "#EDE9FE" },
+  { label: "Malini Fernando", sub: "Instructor Â· INS-0018", icon: User, color: "#7C3AED", bg: "#EDE9FE" },
+  { label: "Sessions â€” 22 July 2026", sub: "Today's schedule Â· 6 sessions", icon: Calendar, color: "#16A34A", bg: "#DCFCE7" },
+  { label: "RCPT-2026-0841", sub: "Payment Â· Loshan Mihisara Â· LKR 10,000", icon: CreditCard, color: "#D97706", bg: "#FEF3C7" },
+  { label: "Written Examination Results", sub: "Ravishka Rathnayake Â· 88% Â· Passed", icon: Award, color: "#0284C7", bg: "#E0F2FE" },
+  { label: "DMT Application â€” Loshan Mihisara", sub: "Status: Draft Â· LP-2026-WP-00341", icon: FileText, color: "#64748B", bg: "#F1F5F9" },
 ];
 
-const user = { name: "Nimal Perera", initials: "NP", email: "nimal.perera@metrodrive.lk" };
+const user = { name: "Manura Anuhas", initials: "MA", email: "manura.anuhas@metrodrive.lk" };
 const avatarColor = "#2563EB";
 
 const INITIAL_NOTIFS = [
-  { id: 1, text: "Sanduni Jayasekara's trial exam approved", time: "5 min ago", unread: true },
-  { id: 2, text: "Payment received from Tharindu Fernando", time: "1 hour ago", unread: true },
+  { id: 1, text: "Ravishka Rathnayake's trial exam approved", time: "5 min ago", unread: true },
+  { id: 2, text: "Payment received from Lasindu Dilshan", time: "1 hour ago", unread: true },
   { id: 3, text: "DMT application submitted for Nethmi Wijesinghe", time: "3 hours ago", unread: true },
   { id: 4, text: "Session completed by Kasun Silva", time: "Yesterday", unread: false },
 ];
@@ -123,7 +123,7 @@ export function TopNav({ pageTitle }: TopNavProps) {
           <Search size={16} color="#94A3B8" style={{ flexShrink: 0 }} />
           <input
             type="text"
-            placeholder="Search students, sessions…"
+            placeholder="Search students, sessionsâ€¦"
             value={searchVal}
             onChange={(e) => { setSearchVal(e.target.value); setSearchOpen(true); }}
             onFocus={() => { setSearchFocused(true); setSearchOpen(true); }}
@@ -141,7 +141,7 @@ export function TopNav({ pageTitle }: TopNavProps) {
           {searchVal && (
             <button onClick={() => { setSearchVal(""); setSearchOpen(false); }}
               style={{ border: "none", background: "none", cursor: "pointer", color: "#94A3B8", display: "flex", padding: 0 }}>
-              ×
+              Ã—
             </button>
           )}
         </div>
@@ -492,3 +492,4 @@ export function TopNav({ pageTitle }: TopNavProps) {
     </header>
   );
 }
+

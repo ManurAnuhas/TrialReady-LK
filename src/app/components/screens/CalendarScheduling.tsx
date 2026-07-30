@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef, useEffect } from "react";
+﻿import React, { useState, useMemo, useRef, useEffect } from "react";
 import {
   ChevronLeft,
   ChevronRight,
@@ -22,7 +22,7 @@ import {
   Info,
 } from "lucide-react";
 
-/* ─── Types ─── */
+/* â”€â”€â”€ Types â”€â”€â”€ */
 
 type EventType = "theory" | "practical" | "medical" | "examination" | "trial" | "maintenance";
 
@@ -35,7 +35,7 @@ interface CalEvent {
   instructor: string | null;
   vehicle: string | null;
   location: string;
-  dayIndex: number; // 0=Mon … 6=Sun
+  dayIndex: number; // 0=Mon â€¦ 6=Sun
   startHour: number;
   startMin: number;
   endHour: number;
@@ -64,7 +64,7 @@ interface CreateForm {
   status: string;
 }
 
-/* ─── Constants ─── */
+/* â”€â”€â”€ Constants â”€â”€â”€ */
 
 const WEEK_DATES = [
   "2026-07-20",
@@ -93,7 +93,7 @@ const EVENT_CONFIG: Record<EventType, { color: string; bg: string; border: strin
   maintenance: { color: "#475569", bg: "#F8FAFC", border: "#E2E8F0", label: "Vehicle Maintenance" },
 };
 
-/* ─── Calendar events data ─── */
+/* â”€â”€â”€ Calendar events data â”€â”€â”€ */
 
 const EVENTS: CalEvent[] = [
   // Monday Jul 20
@@ -102,10 +102,10 @@ const EVENTS: CalEvent[] = [
     type: "theory",
     title: "Theory Class",
     student: null,
-    group: "Group A · Morning",
+    group: "Group A Â· Morning",
     instructor: "Kasun Silva",
     vehicle: null,
-    location: "Hall 1 — Main Campus",
+    location: "Hall 1 â€” Main Campus",
     dayIndex: 0,
     startHour: 9,
     startMin: 0,
@@ -117,11 +117,11 @@ const EVENTS: CalEvent[] = [
     id: "e2",
     type: "practical",
     title: "Practical Session",
-    student: "Kavindu Perera",
+    student: "Loshan Mihisara",
     group: null,
     instructor: "Kasun Silva",
     vehicle: "BAA-4521",
-    location: "Route A — Nugegoda",
+    location: "Route A â€” Nugegoda",
     dayIndex: 0,
     startHour: 14,
     startMin: 0,
@@ -137,7 +137,7 @@ const EVENTS: CalEvent[] = [
     group: null,
     instructor: "Ruwan Jayasinghe",
     vehicle: "CAG-8820",
-    location: "Route B — Colombo 5",
+    location: "Route B â€” Colombo 5",
     dayIndex: 0,
     startHour: 16,
     startMin: 0,
@@ -151,7 +151,7 @@ const EVENTS: CalEvent[] = [
     id: "e4",
     type: "trial",
     title: "Practical Trial",
-    student: "Sanduni Jayasekara",
+    student: "Ravishka Rathnayake",
     group: null,
     instructor: "Malini Fernando",
     vehicle: "BAA-4521",
@@ -168,10 +168,10 @@ const EVENTS: CalEvent[] = [
     type: "theory",
     title: "Theory Class",
     student: null,
-    group: "Group B · Afternoon",
+    group: "Group B Â· Afternoon",
     instructor: "Kasun Silva",
     vehicle: null,
-    location: "Hall 1 — Main Campus",
+    location: "Hall 1 â€” Main Campus",
     dayIndex: 1,
     startHour: 10,
     startMin: 0,
@@ -187,7 +187,7 @@ const EVENTS: CalEvent[] = [
     group: null,
     instructor: null,
     vehicle: null,
-    location: "Examination Hall — Block C",
+    location: "Examination Hall â€” Block C",
     dayIndex: 1,
     startHour: 15,
     startMin: 0,
@@ -201,11 +201,11 @@ const EVENTS: CalEvent[] = [
     id: "e7",
     type: "practical",
     title: "Practical Session",
-    student: "Kavindu Perera",
+    student: "Loshan Mihisara",
     group: null,
     instructor: "Kasun Silva",
     vehicle: "BAA-4521",
-    location: "Route A — Nugegoda",
+    location: "Route A â€” Nugegoda",
     dayIndex: 2,
     startHour: 9,
     startMin: 0,
@@ -221,7 +221,7 @@ const EVENTS: CalEvent[] = [
     group: "Group C",
     instructor: "Malini Fernando",
     vehicle: null,
-    location: "Hall 2 — Annex Building",
+    location: "Hall 2 â€” Annex Building",
     dayIndex: 2,
     startHour: 11,
     startMin: 0,
@@ -233,7 +233,7 @@ const EVENTS: CalEvent[] = [
     id: "e9",
     type: "medical",
     title: "Medical Appointment",
-    student: "Tharindu Fernando",
+    student: "Lasindu Dilshan",
     group: null,
     instructor: null,
     vehicle: null,
@@ -252,10 +252,10 @@ const EVENTS: CalEvent[] = [
     type: "theory",
     title: "Theory Class",
     student: null,
-    group: "Group A · Morning",
+    group: "Group A Â· Morning",
     instructor: "Kasun Silva",
     vehicle: null,
-    location: "Hall 1 — Main Campus",
+    location: "Hall 1 â€” Main Campus",
     dayIndex: 3,
     startHour: 8,
     startMin: 30,
@@ -271,7 +271,7 @@ const EVENTS: CalEvent[] = [
     group: null,
     instructor: "Ruwan Jayasinghe",
     vehicle: "CAG-8820",
-    location: "Route B — Colombo 5",
+    location: "Route B â€” Colombo 5",
     dayIndex: 3,
     startHour: 13,
     startMin: 0,
@@ -283,11 +283,11 @@ const EVENTS: CalEvent[] = [
     id: "e12",
     type: "practical",
     title: "Practical Session",
-    student: "Kavindu Perera",
+    student: "Loshan Mihisara",
     group: null,
     instructor: "Kasun Silva",
     vehicle: "BAA-4521",
-    location: "Route A — Nugegoda",
+    location: "Route A â€” Nugegoda",
     dayIndex: 3,
     startHour: 15,
     startMin: 30,
@@ -301,11 +301,11 @@ const EVENTS: CalEvent[] = [
     id: "e13",
     type: "practical",
     title: "Practical Session",
-    student: "Kavindu Perera",
+    student: "Loshan Mihisara",
     group: null,
     instructor: "Kasun Silva",
     vehicle: "BAA-4521",
-    location: "Route A — Nugegoda",
+    location: "Route A â€” Nugegoda",
     dayIndex: 4,
     startHour: 9,
     startMin: 0,
@@ -321,7 +321,7 @@ const EVENTS: CalEvent[] = [
     group: "BAA-4521",
     instructor: null,
     vehicle: "BAA-4521",
-    location: "Workshop — Rear Block",
+    location: "Workshop â€” Rear Block",
     dayIndex: 4,
     startHour: 10,
     startMin: 0,
@@ -337,7 +337,7 @@ const EVENTS: CalEvent[] = [
     group: null,
     instructor: null,
     vehicle: null,
-    location: "Examination Hall — Block C",
+    location: "Examination Hall â€” Block C",
     dayIndex: 4,
     startHour: 14,
     startMin: 0,
@@ -351,7 +351,7 @@ const EVENTS: CalEvent[] = [
     id: "e16",
     type: "trial",
     title: "Practical Trial",
-    student: "Sanduni Jayasekara",
+    student: "Ravishka Rathnayake",
     group: null,
     instructor: "Malini Fernando",
     vehicle: "BAA-4521",
@@ -371,7 +371,7 @@ const EVENTS: CalEvent[] = [
     group: "Group D",
     instructor: "Malini Fernando",
     vehicle: null,
-    location: "Hall 2 — Annex Building",
+    location: "Hall 2 â€” Annex Building",
     dayIndex: 5,
     startHour: 10,
     startMin: 0,
@@ -381,7 +381,7 @@ const EVENTS: CalEvent[] = [
   },
 ];
 
-/* ─── Helpers ─── */
+/* â”€â”€â”€ Helpers â”€â”€â”€ */
 
 function fmtHour(h: number): string {
   if (h === 0 || h === 12) return `${h === 0 ? 12 : 12} ${h === 0 ? "AM" : "PM"}`;
@@ -453,7 +453,7 @@ function detectConflicts(form: CreateForm): ConflictWarning[] {
   return Object.values(conflicts);
 }
 
-/* ─── Event block ─── */
+/* â”€â”€â”€ Event block â”€â”€â”€ */
 
 function EventBlock({ ev, onClick }: { ev: CalEvent; onClick: (ev: CalEvent) => void }) {
   const cfg = EVENT_CONFIG[ev.type];
@@ -494,7 +494,7 @@ function EventBlock({ ev, onClick }: { ev: CalEvent; onClick: (ev: CalEvent) => 
           textOverflow: "ellipsis",
         }}
       >
-        {fmtTime(ev.startHour, ev.startMin)} · {ev.title}
+        {fmtTime(ev.startHour, ev.startMin)} Â· {ev.title}
       </div>
       {!compact && (
         <>
@@ -521,7 +521,7 @@ function EventBlock({ ev, onClick }: { ev: CalEvent; onClick: (ev: CalEvent) => 
                 textOverflow: "ellipsis",
               }}
             >
-              {ev.instructor}{ev.vehicle ? ` · ${ev.vehicle}` : ""}
+              {ev.instructor}{ev.vehicle ? ` Â· ${ev.vehicle}` : ""}
             </div>
           )}
         </>
@@ -530,7 +530,7 @@ function EventBlock({ ev, onClick }: { ev: CalEvent; onClick: (ev: CalEvent) => 
   );
 }
 
-/* ─── Create Event drawer ─── */
+/* â”€â”€â”€ Create Event drawer â”€â”€â”€ */
 
 const INITIAL_FORM: CreateForm = {
   eventType: "practical",
@@ -540,7 +540,7 @@ const INITIAL_FORM: CreateForm = {
   endTime: "10:30",
   instructor: "Kasun Silva",
   vehicle: "BAA-4521",
-  student: "Kavindu Perera",
+  student: "Loshan Mihisara",
   location: "",
   reminderTiming: "30min",
   notes: "",
@@ -733,7 +733,7 @@ function CreateEventDrawer({
             >
               <AlertTriangle size={15} color="#991B1B" style={{ flexShrink: 0, marginTop: 1 }} />
               <div style={{ fontSize: 12, fontWeight: 600, color: "#991B1B" }}>
-                {conflicts.length} scheduling conflict{conflicts.length > 1 ? "s" : ""} detected — resolve before scheduling
+                {conflicts.length} scheduling conflict{conflicts.length > 1 ? "s" : ""} detected â€” resolve before scheduling
               </div>
             </div>
           </div>
@@ -837,9 +837,9 @@ function CreateEventDrawer({
               onChange={(e) => update("vehicle", e.target.value)}
             >
               <option value="">Select vehicle</option>
-              <option value="BAA-4521">BAA-4521 · Suzuki Alto · Manual</option>
-              <option value="CAG-8820">CAG-8820 · Honda CB150 · Manual</option>
-              <option value="CBE-3310">CBE-3310 · Maruti Swift · Auto</option>
+              <option value="BAA-4521">BAA-4521 Â· Suzuki Alto Â· Manual</option>
+              <option value="CAG-8820">CAG-8820 Â· Honda CB150 Â· Manual</option>
+              <option value="CBE-3310">CBE-3310 Â· Maruti Swift Â· Auto</option>
             </select>
           </div>
           {conflicts.find((c) => c.type === "vehicle") && (
@@ -859,11 +859,11 @@ function CreateEventDrawer({
               onChange={(e) => update("student", e.target.value)}
             >
               <option value="">Select student or group</option>
-              <option value="Kavindu Perera">Kavindu Perera — STD-2026-0048</option>
-              <option value="Sanduni Jayasekara">Sanduni Jayasekara — STD-2026-0052</option>
-              <option value="Tharindu Fernando">Tharindu Fernando — STD-2026-0061</option>
-              <option value="Nethmi Wijesinghe">Nethmi Wijesinghe — STD-2026-0068</option>
-              <option value="Dilhara Senanayake">Dilhara Senanayake — STD-2026-0072</option>
+              <option value="Loshan Mihisara">Loshan Mihisara â€” STD-2026-0048</option>
+              <option value="Ravishka Rathnayake">Ravishka Rathnayake â€” STD-2026-0052</option>
+              <option value="Lasindu Dilshan">Lasindu Dilshan â€” STD-2026-0061</option>
+              <option value="Nethmi Wijesinghe">Nethmi Wijesinghe â€” STD-2026-0068</option>
+              <option value="Dilhara Senanayake">Dilhara Senanayake â€” STD-2026-0072</option>
               <option value="Group A">Group A (8 students)</option>
               <option value="Group B">Group B (6 students)</option>
             </select>
@@ -912,7 +912,7 @@ function CreateEventDrawer({
               style={{ ...inputS, height: 80, padding: "10px 12px", resize: "vertical", lineHeight: 1.5 }}
               value={form.notes}
               onChange={(e) => update("notes", e.target.value)}
-              placeholder="Additional notes for this event…"
+              placeholder="Additional notes for this eventâ€¦"
             />
           </div>
 
@@ -1018,7 +1018,7 @@ function CreateEventDrawer({
             }}
           >
             {saving ? (
-              <><Loader2 size={14} style={{ animation: "spin 1s linear infinite" }} />Scheduling…</>
+              <><Loader2 size={14} style={{ animation: "spin 1s linear infinite" }} />Schedulingâ€¦</>
             ) : hasConflicts ? (
               <><AlertTriangle size={14} />Resolve conflicts first</>
             ) : (
@@ -1032,7 +1032,7 @@ function CreateEventDrawer({
   );
 }
 
-/* ─── Event Details drawer ─── */
+/* â”€â”€â”€ Event Details drawer â”€â”€â”€ */
 
 function EventDetailsDrawer({
   event,
@@ -1181,7 +1181,7 @@ function EventDetailsDrawer({
             {
               icon: <Clock size={15} />,
               label: "Time",
-              value: `${fmtTime(event.startHour, event.startMin)} – ${fmtTime(event.endHour, event.endMin)}`,
+              value: `${fmtTime(event.startHour, event.startMin)} â€“ ${fmtTime(event.endHour, event.endMin)}`,
             },
             event.instructor && {
               icon: <User size={15} />,
@@ -1201,7 +1201,7 @@ function EventDetailsDrawer({
             {
               icon: <Users size={15} />,
               label: "Participant",
-              value: event.student || event.group || "—",
+              value: event.student || event.group || "â€”",
             },
           ]
             .filter(Boolean)
@@ -1353,7 +1353,7 @@ function EventDetailsDrawer({
   );
 }
 
-/* ─── Legend ─── */
+/* â”€â”€â”€ Legend â”€â”€â”€ */
 
 function Legend() {
   return (
@@ -1368,7 +1368,7 @@ function Legend() {
   );
 }
 
-/* ─── Filter select ─── */
+/* â”€â”€â”€ Filter select â”€â”€â”€ */
 
 function FilterSelect({
   value,
@@ -1410,7 +1410,7 @@ function FilterSelect({
   );
 }
 
-/* ─── Main export ─── */
+/* â”€â”€â”€ Main export â”€â”€â”€ */
 
 export function CalendarScheduling() {
   const [createOpen, setCreateOpen] = useState(false);
@@ -1461,7 +1461,7 @@ export function CalendarScheduling() {
             Calendar & Scheduling
           </h1>
           <div style={{ fontSize: 13, color: "#64748B" }}>
-            Week of 20 – 26 July 2026 · {EVENTS.length} events scheduled
+            Week of 20 â€“ 26 July 2026 Â· {EVENTS.length} events scheduled
           </div>
         </div>
         <button
@@ -1599,7 +1599,7 @@ export function CalendarScheduling() {
             <input
               value={studentSearch}
               onChange={(e) => setStudentSearch(e.target.value)}
-              placeholder="Search student…"
+              placeholder="Search studentâ€¦"
               style={{
                 height: 36,
                 paddingLeft: 28,
@@ -1877,3 +1877,4 @@ export function CalendarScheduling() {
     </div>
   );
 }
+

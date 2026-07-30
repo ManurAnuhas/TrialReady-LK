@@ -1,18 +1,18 @@
-import React, { useState, useRef } from "react";
+﻿import React, { useState, useRef } from "react";
 import { Eye, EyeOff, Check, Loader2, AlertCircle, CheckCircle2, Shield } from "lucide-react";
 import type { Role } from "../shell/Sidebar";
 import { BrandMark } from "../shell/BrandMark";
 
-/* ─── demo accounts ─────────────────────────────────────── */
+/* â”€â”€â”€ demo accounts â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 const DEMO_ACCOUNTS = [
   {
     role: "admin" as Role,
-    name: "Nimal Perera",
+    name: "Manura Anuhas",
     title: "Administrator",
     email: "admin@metrodrive.lk",
     password: "demo123",
-    initials: "NP",
+    initials: "MA",
     color: "#2563EB",
     bg: "#DBEAFE",
   },
@@ -28,11 +28,11 @@ const DEMO_ACCOUNTS = [
   },
   {
     role: "student" as Role,
-    name: "Kavindu Perera",
+    name: "Loshan Mihisara",
     title: "Student",
     email: "student@metrodrive.lk",
     password: "demo123",
-    initials: "KP",
+    initials: "LM",
     color: "#0284C7",
     bg: "#E0F2FE",
   },
@@ -44,7 +44,7 @@ interface LoginScreenProps {
   onLogin: () => void;
 }
 
-/* ─── Journey Illustration SVG ──────────────────────────── */
+/* â”€â”€â”€ Journey Illustration SVG â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 function JourneyIllustration() {
   return (
@@ -61,22 +61,22 @@ function JourneyIllustration() {
       {/* Road centre line */}
       <path d="M 80 310 Q 140 240 185 180 Q 230 120 300 65" stroke="rgba(255,255,255,0.18)" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="14 11" fill="none" />
 
-      {/* Stage milestone 1 — Registered */}
+      {/* Stage milestone 1 â€” Registered */}
       <circle cx="88" cy="302" r="14" fill="#0F172A" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
       <circle cx="88" cy="302" r="8" fill="#94A3B8" />
       <circle cx="88" cy="302" r="4" fill="#ffffff" />
 
-      {/* Stage milestone 2 — Theory */}
+      {/* Stage milestone 2 â€” Theory */}
       <circle cx="160" cy="218" r="14" fill="#0F172A" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
       <circle cx="160" cy="218" r="8" fill="#0284C7" />
       <circle cx="160" cy="218" r="4" fill="#ffffff" />
 
-      {/* Stage milestone 3 — Practical */}
+      {/* Stage milestone 3 â€” Practical */}
       <circle cx="220" cy="148" r="14" fill="#0F172A" stroke="rgba(255,255,255,0.15)" strokeWidth="1" />
       <circle cx="220" cy="148" r="8" fill="#7C3AED" />
       <circle cx="220" cy="148" r="4" fill="#ffffff" />
 
-      {/* Stage milestone 4 — Trial Ready */}
+      {/* Stage milestone 4 â€” Trial Ready */}
       <circle cx="296" cy="72" r="18" fill="#16A34A" opacity="0.95" />
       <circle cx="296" cy="72" r="10" fill="#ffffff" opacity="0.9" />
       {/* checkmark at milestone 4 */}
@@ -88,7 +88,7 @@ function JourneyIllustration() {
       <text x="238" y="153" fill="rgba(255,255,255,0.55)" fontSize="10" fontFamily="Inter,sans-serif" fontWeight="500">Practical</text>
       <text x="315" y="68" fill="#4ADE80" fontSize="10" fontFamily="Inter,sans-serif" fontWeight="600">Trial ready</text>
 
-      {/* Car — simplified side silhouette */}
+      {/* Car â€” simplified side silhouette */}
       <g transform="translate(175, 190) rotate(-38)">
         <rect x="-22" y="-9" width="44" height="17" rx="4" fill="#2563EB" />
         <rect x="-12" y="-17" width="24" height="10" rx="3" fill="#60A5FA" />
@@ -101,7 +101,7 @@ function JourneyIllustration() {
         <rect x="19" y="-4" width="5" height="3" rx="1.5" fill="#FEF3C7" opacity="0.9" />
       </g>
 
-      {/* Floating info card 1 — top right */}
+      {/* Floating info card 1 â€” top right */}
       <rect x="308" y="100" width="100" height="46" rx="8" fill="rgba(30,41,59,0.85)" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
       <circle cx="323" cy="116" r="7" fill="#2563EB" opacity="0.9" />
       <rect x="335" y="110" width="52" height="4" rx="2" fill="rgba(255,255,255,0.5)" />
@@ -109,7 +109,7 @@ function JourneyIllustration() {
       <rect x="313" y="128" width="85" height="3" rx="1.5" fill="rgba(255,255,255,0.12)" />
       <rect x="313" y="135" width="60" height="3" rx="1.5" fill="rgba(255,255,255,0.08)" />
 
-      {/* Floating info card 2 — middle left */}
+      {/* Floating info card 2 â€” middle left */}
       <rect x="10" y="180" width="95" height="42" rx="8" fill="rgba(30,41,59,0.85)" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
       <rect x="20" y="191" width="50" height="3" rx="1.5" fill="rgba(255,255,255,0.45)" />
       <rect x="20" y="198" width="35" height="3" rx="1.5" fill="rgba(255,255,255,0.25)" />
@@ -123,13 +123,13 @@ function JourneyIllustration() {
       <circle cx="120" cy="60" r="2" fill="rgba(255,255,255,0.1)" />
       <circle cx="370" cy="290" r="2" fill="rgba(255,255,255,0.1)" />
 
-      {/* Road ahead — dotted suggestion */}
+      {/* Road ahead â€” dotted suggestion */}
       <path d="M 296 52 Q 320 30 350 15" stroke="rgba(255,255,255,0.12)" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="6 8" fill="none" />
     </svg>
   );
 }
 
-/* ─── Main component ─────────────────────────────────────── */
+/* â”€â”€â”€ Main component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 export function LoginScreen({ onLogin }: LoginScreenProps) {
   const [email, setEmail] = useState("");
@@ -214,7 +214,7 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
         overflow: "hidden",
       }}
     >
-      {/* ── Left panel ──────────────────────────── */}
+      {/* â”€â”€ Left panel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div
         style={{
           flex: "0 0 48%",
@@ -294,7 +294,7 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
         </div>
       </div>
 
-      {/* ── Right panel ─────────────────────────── */}
+      {/* â”€â”€ Right panel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div
         style={{
           flex: 1,
@@ -364,7 +364,7 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
                   <CheckCircle2 size={28} color="#16A34A" />
                 </div>
                 <div style={{ fontSize: 16, fontWeight: 600, color: "#16A34A" }}>Sign-in successful!</div>
-                <div style={{ fontSize: 13, color: "#64748B" }}>Redirecting to your dashboard…</div>
+                <div style={{ fontSize: 13, color: "#64748B" }}>Redirecting to your dashboardâ€¦</div>
               </div>
             )}
 
@@ -404,7 +404,7 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
                         padding: 0,
                       }}
                     >
-                      {forgotSent ? "✓ Reset link sent" : "Forgot password?"}
+                      {forgotSent ? "âœ“ Reset link sent" : "Forgot password?"}
                     </button>
                   </div>
                   <div style={{ position: "relative" }}>
@@ -512,7 +512,7 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
                   {loginState === "loading" ? (
                     <>
                       <Loader2 size={16} style={{ animation: "spin 1s linear infinite" }} />
-                      Signing in…
+                      Signing inâ€¦
                     </>
                   ) : (
                     "Sign in"
@@ -545,7 +545,7 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
                 }}
               >
                 <Shield size={12} />
-                Quick access — demo accounts
+                Quick access â€” demo accounts
               </div>
               <div style={{ flex: 1, height: 1, background: "#E2E8F0" }} />
             </div>
@@ -626,7 +626,7 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
           }}
         >
           <span style={{ fontSize: 12, color: "#94A3B8" }}>
-            © 2026 TrialReady LK. All rights reserved.
+            Â© 2026 TrialReady LK. All rights reserved.
           </span>
         </div>
       </div>
@@ -635,3 +635,4 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
     </div>
   );
 }
+

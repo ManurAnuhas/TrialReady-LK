@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import {
   Bell, Calendar, CreditCard, FileText, Stethoscope,
   Award, Settings, Trash2, CheckCheck, Check, ExternalLink,
   AlertCircle, Clock, RefreshCw,
 } from "lucide-react";
 
-/* ─── Types & data ─── */
+/* â”€â”€â”€ Types & data â”€â”€â”€ */
 
 type NoteCategory = "sessions" | "payments" | "permits" | "medical" | "exams" | "system";
 type NoteFilter = "all" | "unread" | NoteCategory;
@@ -23,13 +23,13 @@ interface Notification {
 }
 
 const INITIAL: Notification[] = [
-  { id: "n1", category: "sessions", title: "Practical session reminder", message: "Kavindu Perera has a practical session tomorrow at 9:00 AM with Kasun Silva. Vehicle BAA-4521 has been assigned.", date: "2026-07-21", time: "16:00", read: false, action: "View session", priority: "normal" },
-  { id: "n2", category: "permits", title: "Learner permit expiry warning", message: "Sanduni Jayasekara's learner permit (LP-2026-WP-00298) expires in 14 days on 4 August 2026. Arrange renewal or trial before expiry.", date: "2026-07-21", time: "09:00", read: false, action: "View permit", priority: "high" },
-  { id: "n3", category: "payments", title: "Payment overdue", message: "Tharindu Fernando has an outstanding balance of LKR 30,000 on the Motorcycle Starter Package. Last payment was 18 June 2026.", date: "2026-07-20", time: "12:30", read: false, action: "Record payment", priority: "high" },
-  { id: "n4", category: "medical", title: "Medical certificate expiring soon", message: "Nethmi Wijesinghe's medical certificate (MC-2026-WP-03871) is valid until 15 August 2026 — 25 days remaining. Request renewal.", date: "2026-07-20", time: "09:15", read: true, action: "View student" },
-  { id: "n5", category: "sessions", title: "Session cancellation — late notice", message: "Dilhara Senanayake cancelled the practical session scheduled for today at 2:00 PM. The instructor and vehicle slot is now available.", date: "2026-07-20", time: "08:45", read: true, action: "Reschedule" },
-  { id: "n6", category: "exams", title: "Trial result recorded", message: "Sanduni Jayasekara's practical trial result has been recorded. Score: 88% — Passed. Certificate of completion is ready.", date: "2026-07-19", time: "17:20", read: true, action: "View result" },
-  { id: "n7", category: "payments", title: "Payment received", message: "LKR 10,000 recorded for Kavindu Perera (RCPT-2026-0841) via Bank Transfer. Remaining balance: LKR 12,500.", date: "2026-07-19", time: "14:05", read: true },
+  { id: "n1", category: "sessions", title: "Practical session reminder", message: "Loshan Mihisara has a practical session tomorrow at 9:00 AM with Kasun Silva. Vehicle BAA-4521 has been assigned.", date: "2026-07-21", time: "16:00", read: false, action: "View session", priority: "normal" },
+  { id: "n2", category: "permits", title: "Learner permit expiry warning", message: "Ravishka Rathnayake's learner permit (LP-2026-WP-00298) expires in 14 days on 4 August 2026. Arrange renewal or trial before expiry.", date: "2026-07-21", time: "09:00", read: false, action: "View permit", priority: "high" },
+  { id: "n3", category: "payments", title: "Payment overdue", message: "Lasindu Dilshan has an outstanding balance of LKR 30,000 on the Motorcycle Starter Package. Last payment was 18 June 2026.", date: "2026-07-20", time: "12:30", read: false, action: "Record payment", priority: "high" },
+  { id: "n4", category: "medical", title: "Medical certificate expiring soon", message: "Nethmi Wijesinghe's medical certificate (MC-2026-WP-03871) is valid until 15 August 2026 â€” 25 days remaining. Request renewal.", date: "2026-07-20", time: "09:15", read: true, action: "View student" },
+  { id: "n5", category: "sessions", title: "Session cancellation â€” late notice", message: "Dilhara Senanayake cancelled the practical session scheduled for today at 2:00 PM. The instructor and vehicle slot is now available.", date: "2026-07-20", time: "08:45", read: true, action: "Reschedule" },
+  { id: "n6", category: "exams", title: "Trial result recorded", message: "Ravishka Rathnayake's practical trial result has been recorded. Score: 88% â€” Passed. Certificate of completion is ready.", date: "2026-07-19", time: "17:20", read: true, action: "View result" },
+  { id: "n7", category: "payments", title: "Payment received", message: "LKR 10,000 recorded for Loshan Mihisara (RCPT-2026-0841) via Bank Transfer. Remaining balance: LKR 12,500.", date: "2026-07-19", time: "14:05", read: true },
   { id: "n8", category: "permits", title: "Permit expiry warning", message: "Ruwan Wickramasinghe's learner permit expires in 30 days. Coordinate with the student for renewal.", date: "2026-07-18", time: "09:00", read: true, action: "View permit", priority: "normal" },
   { id: "n9", category: "system", title: "Backup completed successfully", message: "The weekly data backup completed at 03:00 AM on 18 July 2026. All records are secure and up to date.", date: "2026-07-18", time: "03:01", read: true },
   { id: "n10", category: "exams", title: "Upcoming written examination", message: "Written examination session scheduled for 22 July 2026 at 10:00 AM. 6 students are registered.", date: "2026-07-17", time: "15:30", read: true, action: "View exam" },
@@ -69,7 +69,7 @@ function timeAgo(date: string, time: string): string {
   return `${diffD} days ago`;
 }
 
-/* ─── Notification item ─── */
+/* â”€â”€â”€ Notification item â”€â”€â”€ */
 
 function NotifItem({ n, onRead, onDelete }: { n: Notification; onRead: (id: string) => void; onDelete: (id: string) => void }) {
   const cfg = CAT_CONFIG[n.category];
@@ -119,7 +119,7 @@ function NotifItem({ n, onRead, onDelete }: { n: Notification; onRead: (id: stri
   );
 }
 
-/* ─── Main export ─── */
+/* â”€â”€â”€ Main export â”€â”€â”€ */
 
 export function NotificationsCentre() {
   const [notes, setNotes] = useState<Notification[]>(INITIAL);
@@ -213,3 +213,4 @@ export function NotificationsCentre() {
     </div>
   );
 }
+

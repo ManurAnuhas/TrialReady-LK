@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import {
   ChevronLeft,
   Edit3,
@@ -26,7 +26,7 @@ import {
   Activity,
 } from "lucide-react";
 
-/* ─── Stage data ─── */
+/* â”€â”€â”€ Stage data â”€â”€â”€ */
 
 const STAGES = [
   { id: 1, label: "Registered", state: "completed" },
@@ -51,7 +51,7 @@ const TABS = [
   { id: "activity", label: "Activity" },
 ];
 
-/* ─── Reusable card ─── */
+/* â”€â”€â”€ Reusable card â”€â”€â”€ */
 
 function InfoCard({
   title,
@@ -91,7 +91,7 @@ function InfoCard({
   );
 }
 
-/* ─── Info row ─── */
+/* â”€â”€â”€ Info row â”€â”€â”€ */
 
 function InfoRow({
   label,
@@ -130,7 +130,7 @@ function InfoRow({
   );
 }
 
-/* ─── Status badge inline ─── */
+/* â”€â”€â”€ Status badge inline â”€â”€â”€ */
 
 function StatusPill({ label, color, bg }: { label: string; color: string; bg: string }) {
   return (
@@ -151,7 +151,7 @@ function StatusPill({ label, color, bg }: { label: string; color: string; bg: st
   );
 }
 
-/* ─── Journey timeline ─── */
+/* â”€â”€â”€ Journey timeline â”€â”€â”€ */
 
 function JourneyTimeline() {
   const PROGRESS = 68;
@@ -192,7 +192,7 @@ function JourneyTimeline() {
         <div>
           <div style={{ fontSize: 13, fontWeight: 700, color: "#1E293B" }}>Licence journey</div>
           <div style={{ fontSize: 12, color: "#64748B", marginTop: 2 }}>
-            Stage 6 of 9 · Practical Training in progress
+            Stage 6 of 9 Â· Practical Training in progress
           </div>
         </div>
         <div style={{ textAlign: "right" }}>
@@ -333,17 +333,17 @@ function JourneyTimeline() {
   );
 }
 
-/* ─── Overview tab ─── */
+/* â”€â”€â”€ Overview tab â”€â”€â”€ */
 
 function OverviewTab() {
   return (
     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
       {/* Personal Details */}
       <InfoCard title="Personal details" icon={<User size={15} />}>
-        <InfoRow label="NIC" value="2001••••5678" mono />
+        <InfoRow label="NIC" value="2001â€¢â€¢â€¢â€¢5678" mono />
         <InfoRow label="Date of birth" value="16 August 2001" />
         <InfoRow label="Phone" value="+94 77 123 4567" />
-        <InfoRow label="Email" value="kavindu.perera@example.lk" />
+        <InfoRow label="Email" value="loshan.mihisara@example.lk" />
         <div style={{ display: "flex", justifyContent: "space-between", padding: "7px 0" }}>
           <span style={{ fontSize: 13, color: "#64748B" }}>Address</span>
           <span style={{ fontSize: 13, color: "#1E293B", fontWeight: 500, textAlign: "right" }}>
@@ -390,7 +390,7 @@ function OverviewTab() {
             }}
           >
             <Clock size={12} />
-            Permit expires in 45 days · Trial window open
+            Permit expires in 45 days Â· Trial window open
           </div>
         </div>
       </InfoCard>
@@ -462,10 +462,10 @@ function OverviewTab() {
             <span style={{ fontSize: 12, color: "#64748B" }}>Thu, 24 Jul 2026</span>
           </div>
           {[
-            { icon: <Clock size={13} />, text: "09:00 AM – 10:00 AM" },
+            { icon: <Clock size={13} />, text: "09:00 AM â€“ 10:00 AM" },
             { icon: <User size={13} />, text: "Kasun Silva" },
             { icon: <Car size={13} />, text: "BAA-4521" },
-            { icon: <MapPin size={13} />, text: "Route A – Nugegoda" },
+            { icon: <MapPin size={13} />, text: "Route A â€“ Nugegoda" },
           ].map(({ icon, text }) => (
             <div
               key={text}
@@ -557,7 +557,7 @@ function OverviewTab() {
         </button>
       </InfoCard>
 
-      {/* Training recommendation – full width */}
+      {/* Training recommendation â€“ full width */}
       <div style={{ gridColumn: "1 / -1" }}>
         <div
           style={{
@@ -621,7 +621,7 @@ function OverviewTab() {
                 well on open roads but hesitates at busy intersections. Recommend two additional focused sessions on
                 junction navigation before scheduling the trial."
               </p>
-              <div style={{ fontSize: 12, color: "#64748B" }}>Generated 18 Jul 2026 · Next review due 25 Jul 2026</div>
+              <div style={{ fontSize: 12, color: "#64748B" }}>Generated 18 Jul 2026 Â· Next review due 25 Jul 2026</div>
             </div>
           </div>
         </div>
@@ -630,7 +630,7 @@ function OverviewTab() {
   );
 }
 
-/* ─── Sessions tab (basic) ─── */
+/* â”€â”€â”€ Sessions tab (basic) â”€â”€â”€ */
 
 const SESSION_DATA = [
   { date: "24 Jul 2026", type: "Practical Training", instructor: "Kasun Silva", vehicle: "BAA-4521", status: "upcoming", duration: "1 hr" },
@@ -638,7 +638,7 @@ const SESSION_DATA = [
   { date: "17 Jul 2026", type: "Practical Training", instructor: "Kasun Silva", vehicle: "BAA-4521", status: "completed", duration: "1.5 hrs" },
   { date: "12 Jul 2026", type: "Practical Training", instructor: "Kasun Silva", vehicle: "CAG-8820", status: "completed", duration: "1 hr" },
   { date: "05 Jul 2026", type: "Practical Training", instructor: "Kasun Silva", vehicle: "BAA-4521", status: "completed", duration: "1 hr" },
-  { date: "28 Jun 2026", type: "Theory Class", instructor: "Kasun Silva", vehicle: "—", status: "completed", duration: "2 hrs" },
+  { date: "28 Jun 2026", type: "Theory Class", instructor: "Kasun Silva", vehicle: "â€”", status: "completed", duration: "2 hrs" },
 ];
 
 function SessionsTab() {
@@ -734,7 +734,7 @@ function SessionsTab() {
   );
 }
 
-/* ─── Payments tab ─── */
+/* â”€â”€â”€ Payments tab â”€â”€â”€ */
 
 const PAYMENT_DATA = [
   { date: "05 Feb 2026", description: "Registration & initial payment", amount: 15000, method: "Cash", receipt: "RCP-0241" },
@@ -861,7 +861,7 @@ function PaymentsTab() {
   );
 }
 
-/* ─── Training Recommendations tab ─── */
+/* â”€â”€â”€ Training Recommendations tab â”€â”€â”€ */
 
 const AI_RECS = [
   {
@@ -878,7 +878,7 @@ const AI_RECS = [
     approvedBy: "Kasun Silva",
     date: "05 Jul 2026",
     category: "Theory knowledge",
-    rec: "Review road-sign recognition — particularly temporary construction signs and lane-closure signals. Performance in theory mock tests shows a consistent 8% gap in this specific area.",
+    rec: "Review road-sign recognition â€” particularly temporary construction signs and lane-closure signals. Performance in theory mock tests shows a consistent 8% gap in this specific area.",
   },
   {
     confidence: 79,
@@ -958,7 +958,7 @@ function AITab() {
                     background: "#EDE9FE",
                   }}
                 >
-                  Approved · {rec.approvedBy}
+                  Approved Â· {rec.approvedBy}
                 </span>
               ) : (
                 <span
@@ -1021,7 +1021,7 @@ function AITab() {
   );
 }
 
-/* ─── More actions dropdown ─── */
+/* â”€â”€â”€ More actions dropdown â”€â”€â”€ */
 
 function MoreActionsMenu() {
   const [open, setOpen] = useState(false);
@@ -1106,7 +1106,7 @@ function MoreActionsMenu() {
   );
 }
 
-/* ─── Main export ─── */
+/* â”€â”€â”€ Main export â”€â”€â”€ */
 
 export function StudentProfile({ onBack }: { onBack: () => void }) {
   const [activeTab, setActiveTab] = useState("overview");
@@ -1137,7 +1137,7 @@ export function StudentProfile({ onBack }: { onBack: () => void }) {
           Students
         </button>
         <span style={{ color: "#CBD5E1", fontSize: 13 }}>/</span>
-        <span style={{ fontSize: 13, color: "#64748B" }}>Kavindu Perera</span>
+        <span style={{ fontSize: 13, color: "#64748B" }}>Loshan Mihisara</span>
         <span style={{ fontSize: 12, color: "#94A3B8", fontFamily: "monospace", marginLeft: 4 }}>
           STD-2026-0048
         </span>
@@ -1180,7 +1180,7 @@ export function StudentProfile({ onBack }: { onBack: () => void }) {
         <div style={{ flex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
             <h1 style={{ fontSize: 22, fontWeight: 700, color: "#1E293B", margin: 0 }}>
-              Kavindu Perera
+              Loshan Mihisara
             </h1>
             <span
               style={{
@@ -1220,9 +1220,9 @@ export function StudentProfile({ onBack }: { onBack: () => void }) {
             >
               Light Vehicle
             </span>
-            <span style={{ fontSize: 12, color: "#94A3B8" }}>·</span>
+            <span style={{ fontSize: 12, color: "#94A3B8" }}>Â·</span>
             <span style={{ fontSize: 12, color: "#64748B" }}>Instructor: Kasun Silva</span>
-            <span style={{ fontSize: 12, color: "#94A3B8" }}>·</span>
+            <span style={{ fontSize: 12, color: "#94A3B8" }}>Â·</span>
             <span style={{ fontSize: 12, color: "#64748B" }}>Registered 05 Feb 2026</span>
           </div>
         </div>
@@ -1398,3 +1398,4 @@ export function StudentProfile({ onBack }: { onBack: () => void }) {
     </div>
   );
 }
+
