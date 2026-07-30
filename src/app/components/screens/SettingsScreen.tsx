@@ -263,9 +263,11 @@ function NotificationsTab() {
     <Card>
       <SectionTitle>Notification preferences</SectionTitle>
       {NOTIF_SETTINGS.map(s => (
-        <SettingRow key={s.label} label={s.label} sub={s.sub}>
-          <Toggle on={s.on} />
-        </SettingRow>
+        <React.Fragment key={s.label}>
+          <SettingRow label={s.label} sub={s.sub}>
+            <Toggle on={s.on} />
+          </SettingRow>
+        </React.Fragment>
       ))}
     </Card>
   );
