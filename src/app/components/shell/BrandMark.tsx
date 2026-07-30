@@ -8,7 +8,7 @@ interface BrandMarkProps {
 
 export function BrandMark({ compact = false, tone = "dark" }: BrandMarkProps) {
   return (
-    <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
+    <div style={{ display: "flex", alignItems: "center" }}>
       {compact ? (
         // Compact mode: show a small square cropped to focus on the circle icon on the left
         <div
@@ -45,8 +45,6 @@ export function BrandMark({ compact = false, tone = "dark" }: BrandMarkProps) {
             padding: "4px 10px",
             display: "flex",
             alignItems: "center",
-            justifyContent: "flex-start",
-            width: "100%",
             boxShadow: "0 2px 4px rgba(0,0,0,0.08)",
           }}
         >
