@@ -45,7 +45,7 @@ export function BrandMark({ compact = false, tone = "dark" }: BrandMarkProps) {
             padding: "4px 10px",
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "flex-start",
             width: "100%",
             boxShadow: "0 2px 4px rgba(0,0,0,0.08)",
           }}
